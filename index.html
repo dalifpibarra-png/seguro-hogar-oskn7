@@ -1,0 +1,1191 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Seguro de casa habitación explicado para tu caso: inquilino, dueño o arrendador.">
+<style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>Hogar Versátil a tu medida</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;600;700&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Roboto+Mono:wght@500;600&display=swap">
+<style>
+  :root{
+    --ground:#EFF4F4; --surface:#FFFFFF; --surface-2:#E3ECEC;
+    --ink:#142326; --ink-soft:#4F6467; --ink-faint:#7A8F91;
+    --accent:#0E5F63; --accent-soft:#D6E8E8; --accent-ink:#0B4A4D; --on-accent:#FFFFFF;
+    --yes:#26714A; --yes-bg:#DCEEE3; --no:#A9382C; --no-bg:#F8E1DD;
+    --warn:#87601A; --warn-bg:#F7EBD4; --agent:#6A3E8F; --agent-bg:#EDE4F5;
+    --line:#CBD9D9; --line-soft:#DFE8E8;
+    --shadow:0 1px 2px rgba(20,35,38,.05),0 10px 26px -18px rgba(20,35,38,.4);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      color-scheme:dark;
+      --ground:#0C1416; --surface:#141F21; --surface-2:#1C292B;
+      --ink:#E4EDED; --ink-soft:#9BB0B2; --ink-faint:#70878A;
+      --accent:#5CB5B8; --accent-soft:#12312F; --accent-ink:#8FD3D4; --on-accent:#08191A;
+      --yes:#54BC85; --yes-bg:#14311F; --no:#EE8878; --no-bg:#371A16;
+      --warn:#D7A84E; --warn-bg:#32250E; --agent:#BE9BE0; --agent-bg:#2A1D36;
+      --line:#26383A; --line-soft:#1F2E30;
+      --shadow:0 1px 2px rgba(0,0,0,.35),0 12px 30px -20px rgba(0,0,0,.85);
+    }
+  }
+  :root[data-theme="dark"]{
+    color-scheme:dark;
+    --ground:#0C1416; --surface:#141F21; --surface-2:#1C292B;
+    --ink:#E4EDED; --ink-soft:#9BB0B2; --ink-faint:#70878A;
+    --accent:#5CB5B8; --accent-soft:#12312F; --accent-ink:#8FD3D4; --on-accent:#08191A;
+    --yes:#54BC85; --yes-bg:#14311F; --no:#EE8878; --no-bg:#371A16;
+    --warn:#D7A84E; --warn-bg:#32250E; --agent:#BE9BE0; --agent-bg:#2A1D36;
+    --line:#26383A; --line-soft:#1F2E30;
+    --shadow:0 1px 2px rgba(0,0,0,.35),0 12px 30px -20px rgba(0,0,0,.85);
+  }
+
+  *{box-sizing:border-box}
+  body{background:var(--ground);color:var(--ink);font-family:"Public Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:15.5px;line-height:1.58;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:900px;margin:0 auto;padding-inline:16px}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+  /* perfil: todo lo marcado con data-p solo se ve en su caso */
+  body[data-perfil="inq"] [data-p]:not([data-p~="inq"]),
+  body[data-perfil="dueno"] [data-p]:not([data-p~="dueno"]),
+  body[data-perfil="arr"] [data-p]:not([data-p~="arr"]){display:none!important}
+
+  /* barra */
+  .top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--ground) 93%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .top-in{display:flex;align-items:center;gap:10px;padding-block:9px;flex-wrap:wrap}
+  .brand{font-family:Bitter,Georgia,serif;font-weight:700;font-size:15px;white-space:nowrap}
+  .brand span{color:var(--accent)}
+  .seg{display:flex;background:var(--surface-2);border-radius:100px;padding:3px;gap:2px}
+  .seg button{font:inherit;font-size:12.5px;font-weight:600;cursor:pointer;border:none;background:none;color:var(--ink-soft);padding:5px 11px;border-radius:100px;white-space:nowrap}
+  .seg button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent)}
+  .sw{width:30px;height:17px;border-radius:100px;background:var(--line);position:relative;transition:background .18s;flex:none}
+  .sw::after{content:"";position:absolute;top:2px;left:2px;width:13px;height:13px;border-radius:50%;background:var(--surface);transition:transform .18s}
+  nav{display:flex;gap:1px;width:100%;overflow-x:auto;padding-bottom:3px;scrollbar-width:none}
+  nav a{color:var(--ink-soft);text-decoration:none;font-size:12.5px;font-weight:500;padding:4px 9px;border-radius:5px;white-space:nowrap}
+  nav a:hover{color:var(--ink);background:var(--surface-2)}
+  @media (max-width:600px){ .seg{order:3;width:100%} .seg button{flex:1;padding:6px 4px} }
+
+  /* hero */
+  header.hero{padding-block:34px 6px}
+  .eyebrow{font-family:"Roboto Mono",monospace;font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);margin:0 0 14px}
+  h1{font-family:Bitter,Georgia,serif;font-size:clamp(29px,5.4vw,44px);line-height:1.07;margin:0 0 14px;letter-spacing:-.02em;font-weight:700;text-wrap:balance}
+  .lede{font-size:17.5px;color:var(--ink-soft);max-width:60ch;margin:0}
+  .lede b{color:var(--ink);font-weight:600}
+
+  .pick{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin:24px 0 4px}
+  .pick button{font:inherit;text-align:left;cursor:pointer;background:var(--surface);color:var(--ink);border:1.5px solid var(--line-soft);border-radius:11px;padding:15px 16px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:4px}
+  .pick button:hover{border-color:var(--accent)}
+  .pick button[aria-pressed="true"]{border-color:var(--accent);background:linear-gradient(var(--accent-soft),var(--surface) 80px)}
+  .pick .k{font-family:"Roboto Mono",monospace;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+  .pick b{font-family:Bitter,Georgia,serif;font-size:17px;font-weight:600}
+  .pick small{color:var(--ink-soft);font-size:13.5px;line-height:1.45}
+
+  section{padding-block:30px;scroll-margin-top:110px}
+  .sec-head{display:flex;align-items:baseline;gap:11px;margin-bottom:8px;flex-wrap:wrap}
+  .sec-num{font-family:"Roboto Mono",monospace;font-size:11.5px;font-weight:600;color:var(--accent);background:var(--accent-soft);border-radius:3px;padding:2px 7px}
+  h2{font-family:Bitter,Georgia,serif;font-size:clamp(22px,3.8vw,29px);margin:0;letter-spacing:-.015em;font-weight:600;text-wrap:balance}
+  .sec-sub{color:var(--ink-soft);margin:0 0 20px;max-width:62ch}
+  h3{font-family:Bitter,Georgia,serif;font-size:17.5px;margin:28px 0 9px;font-weight:600;text-wrap:balance}
+  h4{font-size:15px;margin:0 0 5px;font-weight:700}
+  p{margin:0 0 13px;max-width:66ch}
+  .muted{color:var(--ink-soft)}
+
+  /* ficha (datos) */
+  .ficha{background:var(--surface);border:1px solid var(--line-soft);border-radius:12px;box-shadow:var(--shadow);overflow:hidden}
+  .ficha-head{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:15px 18px;background:var(--surface-2);border-bottom:1px solid var(--line-soft)}
+  .ficha-head h3{margin:0;font-size:16.5px;flex:1;min-width:180px}
+  .prog{display:flex;align-items:center;gap:9px;font-family:"Roboto Mono",monospace;font-size:12px;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+  .prog .bar{width:110px;height:7px;background:var(--line);border-radius:100px;overflow:hidden}
+  .prog .bar i{display:block;height:100%;background:var(--accent);border-radius:100px;transition:width .2s}
+  .grp{padding:4px 18px 8px}
+  .grp + .grp{border-top:1px solid var(--line-soft)}
+  .grp-t{font-family:"Roboto Mono",monospace;font-size:10.5px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-faint);margin:16px 0 4px}
+  .fq{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 22px;padding:13px 0;align-items:start}
+  .fq + .fq{border-top:1px dashed var(--line)}
+  .fq label{font-weight:600;font-size:14.5px;display:block;margin-bottom:6px}
+  .fq .why{font-size:13.5px;color:var(--ink-soft);line-height:1.5}
+  .fq .why b{color:var(--ink);font-weight:600}
+  .fq .why::before{content:"Por qué lo pregunto";display:block;font-family:"Roboto Mono",monospace;font-size:9.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);margin-bottom:3px}
+  .fq input[type="text"],.fq select{width:100%;font:inherit;font-size:16px;background:var(--ground);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:9px 11px}
+  .fq input.num{font-family:"Roboto Mono",monospace;font-weight:600}
+  .opts{display:flex;flex-wrap:wrap;gap:6px}
+  .opts button{font:inherit;font-size:13.5px;cursor:pointer;background:var(--ground);color:var(--ink-soft);border:1px solid var(--line);border-radius:100px;padding:6px 13px}
+  .opts button:hover{border-color:var(--accent);color:var(--ink)}
+  .opts button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+  @media (max-width:640px){ .fq{grid-template-columns:1fr} }
+  .ficha-foot{padding:16px 18px;border-top:1px solid var(--line-soft);background:var(--surface-2);display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+  .btn{font:inherit;font-weight:600;font-size:14px;cursor:pointer;background:var(--accent);color:var(--on-accent);border:none;border-radius:9px;padding:10px 16px}
+  .btn.ghost{background:var(--surface);color:var(--accent);border:1px solid var(--accent)}
+  .btn:disabled{opacity:.45;cursor:default}
+  .ficha-msg{font-size:13px;color:var(--ink-soft)}
+
+  .cambios{margin:16px 0 0;display:flex;flex-direction:column;gap:7px}
+  .flag{display:flex;gap:11px;align-items:flex-start;border-radius:9px;padding:11px 14px;font-size:14px;border:1px solid var(--line);background:var(--surface)}
+  .flag i{font-style:normal;font-family:"Roboto Mono",monospace;font-size:9.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;padding:3px 7px;border-radius:4px;white-space:nowrap;margin-top:1px}
+  .flag.ok{border-color:var(--yes);background:var(--yes-bg)} .flag.ok i{color:var(--yes);background:var(--surface)}
+  .flag.warn{border-color:var(--warn);background:var(--warn-bg)} .flag.warn i{color:var(--warn);background:var(--surface)}
+  .flag.bad{border-color:var(--no);background:var(--no-bg)} .flag.bad i{color:var(--no);background:var(--surface)}
+  .flag.info i{color:var(--accent);background:var(--accent-soft)}
+  .empty{font-size:13.5px;color:var(--ink-faint);padding:10px 2px}
+
+  /* coberturas */
+  .specs{display:flex;flex-direction:column;gap:7px;margin:18px 0}
+  .spec{background:var(--surface);border:1px solid var(--line-soft);border-radius:9px;box-shadow:var(--shadow);overflow:hidden}
+  .spec > summary{display:flex;align-items:center;gap:10px;cursor:pointer;padding:13px 15px;list-style:none;flex-wrap:wrap}
+  .spec > summary::-webkit-details-marker{display:none}
+  .spec > summary:hover{background:var(--surface-2)}
+  .spec-name{font-family:Bitter,Georgia,serif;font-weight:600;font-size:16px;flex:1;min-width:150px}
+  .spec-name small{display:block;font-family:"Public Sans",sans-serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-top:1px}
+  .badge{font-family:"Roboto Mono",monospace;font-size:9.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;padding:3px 7px;border-radius:4px;white-space:nowrap}
+  .badge.core{color:var(--on-accent);background:var(--accent)}
+  .badge.inc{color:var(--yes);background:var(--yes-bg)}
+  .badge.opt{color:var(--warn);background:var(--warn-bg)}
+  .badge.cond{color:var(--no);background:var(--no-bg)}
+  .badge.na{color:var(--ink-faint);background:var(--surface-2)}
+  .spec.is-na{opacity:.62}
+  .spec-body{border-top:1px solid var(--line-soft);padding:4px 15px 14px}
+  .spec-row{display:grid;grid-template-columns:118px 1fr;gap:14px;padding:11px 0;align-items:start}
+  .spec-row + .spec-row{border-top:1px dashed var(--line)}
+  .spec-row > span{font-family:"Roboto Mono",monospace;font-size:9.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);padding-top:3px}
+  .spec-row > div{font-size:14.5px}
+  .spec-row > div p{margin:0 0 7px;max-width:none}
+  .spec-row > div p:last-child{margin-bottom:0}
+  .spec-row ul{margin:0;padding-left:16px}
+  .spec-row li{margin-bottom:4px}
+  .tuyo{background:var(--accent-soft);border-radius:7px;padding:9px 11px;margin-top:4px}
+  .tuyo::before{content:"En tu caso";display:block;font-family:"Roboto Mono",monospace;font-size:9.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:3px}
+  .money{font-family:"Roboto Mono",monospace;font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums}
+  @media (max-width:560px){ .spec-row{grid-template-columns:1fr;gap:3px} .spec-row > span{padding-top:0} }
+
+  /* tablas */
+  .tw{overflow-x:auto;margin:14px 0;border:1px solid var(--line-soft);border-radius:9px;background:var(--surface)}
+  table{border-collapse:collapse;width:100%;font-size:14px}
+  .cmp{min-width:620px}
+  th,td{text-align:left;padding:10px 13px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+  th{font-family:"Roboto Mono",monospace;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);background:var(--surface-2)}
+  tr:last-child td{border-bottom:none}
+  td.num{font-family:"Roboto Mono",monospace;font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}
+  .yes-t{color:var(--yes);font-weight:600} .no-t{color:var(--no);font-weight:600}
+  body[data-perfil="inq"] .c-inq, body[data-perfil="dueno"] .c-dueno, body[data-perfil="arr"] .c-arr{background:var(--accent-soft)}
+  body[data-perfil="inq"] th.c-inq, body[data-perfil="dueno"] th.c-dueno, body[data-perfil="arr"] th.c-arr{color:var(--accent-ink)}
+
+  /* calculadoras */
+  .panel{background:var(--surface);border:1px solid var(--line-soft);border-radius:11px;padding:19px;box-shadow:var(--shadow);margin:18px 0}
+  .panel-label{font-family:"Roboto Mono",monospace;font-size:10.5px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-faint);margin:0 0 10px}
+  .panel h3{margin-top:0}
+  .field{display:flex;flex-direction:column;gap:5px;margin-bottom:15px}
+  .field label{font-size:12.5px;font-weight:600;color:var(--ink-soft);display:flex;justify-content:space-between;gap:10px}
+  .field label output{font-family:"Roboto Mono",monospace;color:var(--accent);font-weight:600}
+  .field input[type="range"]{width:100%;accent-color:var(--accent)}
+  .field input[type="text"]{font-family:"Roboto Mono",monospace;font-size:16px;font-weight:600;background:var(--ground);color:var(--ink);border:1px solid var(--line);border-radius:7px;padding:9px 11px;width:100%}
+  .rowfields{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:15px}
+  .out{background:var(--surface-2);border-radius:9px;padding:15px;margin-top:6px}
+  .ledger .row{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:7px 0;font-size:14px}
+  .ledger .row + .row{border-top:1px dashed var(--line)}
+  .ledger .row span:first-child{color:var(--ink-soft)}
+  .ledger .row span:first-child small{color:var(--ink-faint);font-size:12.5px}
+  .ledger .row > b,.ledger .row > span:last-child{font-family:"Roboto Mono",monospace;font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}
+  .ledger .total{border-top:2px solid var(--ink)!important;margin-top:5px;padding-top:10px;font-size:16px}
+  .ledger .total b{color:var(--yes)}
+  .note-line{margin:13px 0 0;font-size:13.5px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:12px;max-width:none}
+  .note-line b{color:var(--ink)}
+  .checks{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
+  .checks li{display:flex;gap:10px;font-size:14px;align-items:flex-start}
+  .checks li::before{content:"·";font-family:"Roboto Mono",monospace;font-weight:600;width:20px;height:20px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex:none;background:var(--surface);color:var(--ink-faint);border:1px solid var(--line);font-size:11px}
+  .checks li.ok::before{content:"✓";background:var(--yes-bg);color:var(--yes);border-color:var(--yes)}
+  .checks li.bad::before{content:"✕";background:var(--no-bg);color:var(--no);border-color:var(--no)}
+
+  /* precio */
+  .drivers{display:flex;flex-direction:column;margin:14px 0}
+  .drv{display:grid;grid-template-columns:1fr 92px;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line-soft)}
+  .drv:last-child{border-bottom:none}
+  .drv-t{font-size:14.5px}
+  .drv-t small{display:block;color:var(--ink-soft);font-size:13px;margin-top:1px}
+  .meter{height:7px;border-radius:100px;background:var(--line);overflow:hidden}
+  .meter i{display:block;height:100%;border-radius:100px}
+  .m-alto i{width:100%;background:var(--no)} .m-medio i{width:58%;background:var(--warn)} .m-bajo i{width:26%;background:var(--yes)}
+  .drv em{font-style:normal;font-family:"Roboto Mono",monospace;font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-faint);display:block;margin-top:4px}
+
+  /* casos */
+  .filters{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px;align-items:center}
+  .filters button{font:inherit;font-size:12.5px;font-weight:600;cursor:pointer;background:var(--surface);color:var(--ink-soft);border:1px solid var(--line);border-radius:100px;padding:5px 13px}
+  .filters button[aria-pressed="true"]{background:var(--ink);color:var(--ground);border-color:var(--ink)}
+  .count{font-family:"Roboto Mono",monospace;font-size:12px;color:var(--ink-faint)}
+  .cases{display:flex;flex-direction:column;gap:7px}
+  .case{background:var(--surface);border:1px solid var(--line-soft);border-radius:9px;box-shadow:var(--shadow);overflow:hidden}
+  .case[data-v="si"]{border-left:3px solid var(--yes)} .case[data-v="no"]{border-left:3px solid var(--no)} .case[data-v="parcial"]{border-left:3px solid var(--warn)}
+  .case > summary{display:flex;align-items:center;gap:11px;cursor:pointer;padding:13px 14px;list-style:none;font-weight:500}
+  .case > summary::-webkit-details-marker{display:none}
+  .case > summary:hover{background:var(--surface-2)}
+  .case-q{flex:1;min-width:0}
+  .chip{font-family:"Roboto Mono",monospace;font-size:10px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;padding:3px 8px;border-radius:4px;white-space:nowrap}
+  .chip.si{color:var(--yes);background:var(--yes-bg)} .chip.no{color:var(--no);background:var(--no-bg)} .chip.parcial{color:var(--warn);background:var(--warn-bg)}
+  .caret{color:var(--ink-faint);font-size:11px;transition:transform .15s}
+  .case[open] .caret{transform:rotate(90deg)}
+  .case-body{padding:1px 14px 15px;border-top:1px solid var(--line-soft)}
+  .case-body p{margin:12px 0 0;font-size:14.5px;max-width:none}
+
+  /* dudas */
+  .faq{display:flex;flex-direction:column;gap:6px}
+  .q{background:var(--surface);border:1px solid var(--line-soft);border-radius:9px;overflow:hidden}
+  .q > summary{cursor:pointer;padding:14px;list-style:none;font-weight:600;font-size:15px;display:flex;gap:11px;align-items:flex-start}
+  .q > summary::-webkit-details-marker{display:none}
+  .q > summary:hover{background:var(--surface-2)}
+  .q > summary::before{content:"?";font-family:"Roboto Mono",monospace;font-size:12px;font-weight:600;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;flex:none;margin-top:2px}
+  .q-body{padding:0 14px 15px 46px}
+  .q-body p{font-size:14.5px;margin:0 0 9px}
+  .q-body p:last-child{margin-bottom:0}
+
+  /* chat */
+  .chat{background:var(--surface);border:1px solid var(--line-soft);border-radius:11px;box-shadow:var(--shadow);overflow:hidden;margin:18px 0}
+  .chat-head{padding:16px 18px;border-bottom:1px solid var(--line-soft);background:var(--surface-2)}
+  .chat-head h3{margin:0 0 4px;font-size:17px}
+  .chat-head p{margin:0;font-size:13.5px;color:var(--ink-soft);max-width:none}
+  .chips{display:flex;gap:6px;flex-wrap:wrap;padding:14px 18px 0}
+  .chips button{font:inherit;font-size:12.5px;cursor:pointer;background:var(--ground);color:var(--ink-soft);border:1px solid var(--line);border-radius:100px;padding:5px 12px;text-align:left}
+  .chips button:hover{border-color:var(--accent);color:var(--accent)}
+  .thread{padding:16px 18px 0;display:flex;flex-direction:column;gap:12px}
+  .thread:empty{display:none}
+  .msg.you{align-self:flex-end;background:var(--accent);color:var(--on-accent);border-radius:12px 12px 3px 12px;padding:10px 14px;font-size:14.5px;max-width:85%}
+  .msg.bot{background:var(--surface-2);border-radius:12px 12px 12px 3px;padding:12px 15px;font-size:14.5px;line-height:1.55}
+  .msg.bot p{margin:0 0 9px;max-width:none}
+  .msg.bot p:last-child{margin-bottom:0}
+  .msg.bot .who{font-family:"Roboto Mono",monospace;font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:6px}
+  .msg.err{background:var(--warn-bg);border:1px solid var(--warn);border-radius:9px;padding:12px 15px;font-size:14px}
+  .chat-form{display:flex;gap:8px;padding:16px 18px;align-items:flex-end}
+  .chat-form textarea{flex:1;font:inherit;font-size:16px;resize:none;background:var(--ground);color:var(--ink);border:1px solid var(--line);border-radius:9px;padding:11px 13px;min-height:44px;max-height:130px;line-height:1.4}
+  .chat-foot{padding:0 18px 15px;font-size:12px;color:var(--ink-faint);max-width:none;margin:0}
+  .dots::after{content:"";animation:d 1.2s steps(4,end) infinite}
+  @keyframes d{0%{content:""}25%{content:"."}50%{content:".."}75%{content:"..."}}
+  .copybox{margin:14px 18px 16px;padding:12px 14px;background:var(--surface-2);border-radius:9px;font-size:13.5px}
+  .copybox textarea{width:100%;font:inherit;font-size:16px;background:var(--ground);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:9px;margin:9px 0}
+
+  /* avisos */
+  .call{border-radius:9px;padding:15px 17px;margin:16px 0;font-size:14.5px;border:1px solid var(--line);background:var(--surface)}
+  .call.good{border-color:var(--yes);background:var(--yes-bg)}
+  .call.warn{border-color:var(--warn);background:var(--warn-bg)}
+  .call.danger{border-color:var(--no);background:var(--no-bg)}
+  .call strong{display:block;margin-bottom:4px;font-size:12px;letter-spacing:.04em;text-transform:uppercase;font-family:"Roboto Mono",monospace}
+  .call.good strong{color:var(--yes)} .call.warn strong{color:var(--warn)} .call.danger strong{color:var(--no)}
+  .call p{margin:0;max-width:64ch}
+  .call p + p{margin-top:8px}
+
+  .steps{display:flex;flex-direction:column;gap:9px;margin-top:8px}
+  .step{display:flex;gap:14px;background:var(--surface);border:1px solid var(--line-soft);border-radius:9px;padding:15px}
+  .step .n{font-family:Bitter,Georgia,serif;font-size:21px;font-weight:700;color:var(--accent);line-height:1;flex:none;width:26px}
+  .step p{margin:0;font-size:14px;color:var(--ink-soft)}
+
+  footer{border-top:1px solid var(--line);margin-top:28px;padding-block:22px 40px;color:var(--ink-faint);font-size:12.5px}
+  footer p{max-width:68ch;margin:0 0 7px}
+  .mono{font-family:"Roboto Mono",monospace}
+  .sig{color:var(--ink);font-weight:600;font-size:14px}
+  @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+  @media (max-width:560px){ .q-body{padding-left:14px} .drv{grid-template-columns:1fr 70px} .chip{font-size:9px;padding:3px 6px} }
+</style>
+
+
+<div class="top">
+  <div class="wrap top-in">
+    <span class="brand">Hogar Versátil <span>· GNP</span></span>
+    <div class="seg" role="group" aria-label="Tu caso">
+      <button type="button" data-set="inq" aria-pressed="false">Rento donde vivo</button>
+      <button type="button" data-set="dueno" aria-pressed="true">Soy dueño</button>
+      <button type="button" data-set="arr" aria-pressed="false">La rento a alguien</button>
+    </div>
+    <nav aria-label="Secciones">
+      <a href="#datos">Lo que necesito</a>
+      <a href="#cubre">Tu póliza</a>
+      <a href="#comparar">Los tres casos</a>
+      <a href="#numeros">Tus números</a>
+      <a href="#casos">Cuándo sí y cuándo no</a>
+      <a href="#dudas">Dudas</a>
+      <a href="#preguntar">Pregunta</a>
+      <a href="#sigue">Lo que sigue</a>
+    </nav>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <header class="hero">
+    <p class="eyebrow">Seguro de casa habitación · GNP · Octubre 2026</p>
+    <h1>
+      <span data-p="inq">La casa no es tuya. Lo que hay adentro y lo que debes, sí</span>
+      <span data-p="dueno">Tu casa, lo que hay adentro y lo que le debes a otros</span>
+      <span data-p="arr">Tu casa la vive alguien más. Proteges la construcción y la renta</span>
+    </h1>
+    <p class="lede">
+      <span data-p="inq">Como rentas, no pagas por asegurar una construcción que le toca al dueño. Aseguras <b>tus cosas, tu responsabilidad civil y dónde vas a dormir</b> si algo pasa. Es la versión más barata del producto.</span>
+      <span data-p="dueno">Siendo dueño y viviendo ahí, la póliza cubre <b>la construcción, todo lo que hay adentro y lo que tu familia le pueda deber a un tercero</b>. Y si la casa queda inhabitable, te paga mudanza, hotel y bodega.</span>
+      <span data-p="arr">Si la casa es tuya pero vive otra persona, lo que te toca es <b>la construcción, los muebles que dejaste y la renta que dejarías de cobrar</b> si un siniestro la deja inutilizable. Las cosas de tu inquilino son asunto suyo.</span>
+    </p>
+
+    <div class="pick" role="group" aria-label="Elige tu caso">
+      <button type="button" data-set="inq" aria-pressed="false"><span class="k">Inquilino</span><b>Rento donde vivo</b><small>Aseguras tus cosas, tu RC y gastos si te tienes que mudar.</small></button>
+      <button type="button" data-set="dueno" aria-pressed="true"><span class="k">Propietario</span><b>Soy dueño y vivo ahí</b><small>Construcción, contenidos, RC y gastos extraordinarios completos.</small></button>
+      <button type="button" data-set="arr" aria-pressed="false"><span class="k">Arrendador</span><b>Soy dueño y la rento</b><small>Construcción, tus muebles y la renta que dejarías de cobrar.</small></button>
+    </div>
+  </header>
+
+
+  <!-- 01 · DATOS -->
+  <section id="datos">
+    <div class="sec-head"><span class="sec-num">01</span><h2>Lo que necesito saber, y por qué</h2></div>
+    <p class="sec-sub">Antes de hablar de coberturas, estos son los datos que cambian tu póliza. Junto a cada uno está qué decide. Mientras llenas, abajo aparece lo que cambia con tus respuestas.</p>
+
+    <div class="call good" data-p="inq">
+      <strong>Lo que no te voy a pedir</strong>
+      <p>Año de construcción, metros, muros ni valor de reconstrucción. Todo eso sirve para asegurar el edificio, y el edificio le toca al dueño. Por eso tu ficha es más corta y tu prima más baja.</p>
+    </div>
+
+    <div class="ficha">
+      <div class="ficha-head">
+        <h3>Tu ficha</h3>
+        <div class="prog"><span class="bar"><i id="progBar" style="width:0%"></i></span><span id="progTxt">0 de 0</span></div>
+      </div>
+      <div id="fichaBody"></div>
+      <div class="ficha-foot">
+        <button type="button" class="btn" id="btnCopiar">Copiar para WhatsApp</button>
+        <button type="button" class="btn ghost" id="btnLimpiar">Borrar respuestas</button>
+        <span class="ficha-msg" id="fichaMsg" aria-live="polite"></span>
+      </div>
+    </div>
+
+    <h3>Lo que cambia con lo que llenaste</h3>
+    <div class="cambios" id="cambios"></div>
+  </section>
+
+  <!-- 02 · COBERTURAS -->
+  <section id="cubre">
+    <div class="sec-head"><span class="sec-num">02</span><h2>Tu póliza, armada para tu caso</h2></div>
+    <p class="sec-sub">Cada cobertura con lo mismo: qué la activa, cuánto pagan, con qué condiciones y qué no entra. La etiqueta dice qué papel juega <b>en tu caso</b>: <span class="badge core">El centro</span> <span class="badge inc">Incluida</span> <span class="badge opt">Opcional</span> <span class="badge cond">Con condiciones</span> <span class="badge na">No aplica</span></p>
+
+    <div class="call good">
+      <strong>Tres cosas que casi nadie sabe de este producto</strong>
+      <p><b>Es todo riesgo.</b> La base se llama «incendio», pero después de la lista cierra con <i>«cualquier otro riesgo, súbito e imprevisto, que no esté excluido explícitamente»</i>.</p>
+      <p><b>No te castigan por asegurar de menos.</b> Opera a primer riesgo absoluto: declarar de menos baja tu techo, pero no te recortan un porcentaje del daño.</p>
+      <p><b>Se usa aunque nunca pase nada.</b> Videoconsulta médica con receta digital, abogado y asistencias del hogar, desde el primer día.</p>
+    </div>
+
+    <div class="specs" id="specs">
+
+      <details class="spec" data-na="inq">
+        <summary><span class="spec-name">La construcción<small>Edificio, cimientos, escombros</small></span>
+          <span class="badge na" data-p="inq">No aplica</span><span class="badge core" data-p="dueno arr">El centro</span></summary>
+        <div class="spec-body">
+          <div class="spec-row"><span>Qué la activa</span><div><p>Cualquier riesgo súbito e imprevisto que no esté excluido, sobre la estructura.</p></div></div>
+          <div class="spec-row"><span>Cuánto pagan</span><div><p>Hasta la suma asegurada, por <b>valor de reconstrucción</b>: lo que costaría volver a levantarla, no lo que pagaste (eso incluye terreno, que no se quema). Cimientos: <b>10%</b>. Sobrecosto si cambió el reglamento de construcción: <b>10%</b>, sin exceder <span class="money">$500,000</span>. Remoción de escombros y demolición.</p></div></div>
+          <div class="spec-row"><span>Condiciones</span><div><p>⚠️ Un <b>departamento en condominio vertical</b> asegurado por su cuenta se paga a <b>valor comercial</b>, no de reposición, en pérdida total.</p><p>Doble deducible si el tipo constructivo no coincide: año que cambie el reglamento, más de <b>10%</b> de diferencia en m², muros o techos distintos.</p></div></div>
+          <div class="spec-row"><span>Qué no entra</span><div><p>Temblor e hidrometeorológicos, que van aparte.</p>
+            <p class="tuyo" data-p="inq">Le toca al dueño. Por eso tu prima es más baja.</p>
+            <p class="tuyo" data-p="arr">Aunque viva otra persona, la construcción es tuya y la aseguras tú. Si tu inquilino causa un incendio, esta cobertura responde por tu casa.</p></div></div>
+        </div>
+      </details>
+
+      <details class="spec">
+        <summary><span class="spec-name">Contenidos<small>Muebles, ropa, electrodomésticos, menaje</small></span>
+          <span class="badge core" data-p="inq dueno">El centro</span><span class="badge cond" data-p="arr">Solo lo tuyo</span></summary>
+        <div class="spec-body">
+          <div class="spec-row"><span>Qué la activa</span><div><p>Todo riesgo de verdad: cierra con <i>«cualquier otro riesgo, súbito e imprevisto, que no esté excluido explícitamente»</i>.</p></div></div>
+          <div class="spec-row"><span>Cuánto pagan</span><div><p>El <b>valor de reposición</b>, con tope la suma asegurada. El menaje común <b>no tiene sublímite por artículo</b>: un sillón de $40,000 se paga completo. Objetos de arte: hasta el <b>25%</b> de la suma de contenidos.</p></div></div>
+          <div class="spec-row"><span>Condiciones</span><div><p>Deducible y coaseguro de carátula. Hay que acreditar qué tenías: factura, nota, avalúo, estado de cuenta, correo de compra, o video y fotos.</p></div></div>
+          <div class="spec-row"><span>Qué no entra</span><div><ul><li><b>Todo lo profesional</b>: el equipo de trabajo va por otra cobertura</li><li>Dinero y valores</li><li>Terremoto e hidrometeorológicos</li></ul>
+            <p class="tuyo" data-p="arr">Solo los muebles y aparatos que son tuyos y dejaste en la casa. <b>Las cosas de tu inquilino no entran en tu póliza</b>: para eso necesita la suya. Si la rentas sin amueblar, esta cobertura casi no te sirve.</p></div></div>
+        </div>
+      </details>
+
+      <details class="spec">
+        <summary><span class="spec-name">Equipo eléctrico y electrónico<small>Pantallas, refri, lavadora, compus, celulares</small></span>
+          <span class="badge inc" data-p="inq dueno">Incluida</span><span class="badge cond" data-p="arr">Si está amueblada</span></summary>
+        <div class="spec-body">
+          <div class="spec-row"><span>Cuánto pagan</span><div><p>Valor real o de reposición según la <b>tabla de depreciación</b> de la póliza. ⚠️ <b>Celular o laptop de más de 3 años se paga a valor real.</b> Es la sorpresa más común del ajuste.</p></div></div>
+          <div class="spec-row"><span>Condiciones</span><div><p>Si reparar cuesta menos que reponer, se repara. Hay que acreditar la propiedad del equipo.</p></div></div>
+          <div class="spec-row"><span>Qué no entra</span><div><p>Equipo sin acreditación de propiedad, y lo de uso profesional.</p></div></div>
+        </div>
+      </details>
+
+      <details class="spec">
+        <summary><span class="spec-name">Robo<small>Con violencia a la casa, o asalto</small></span>
+          <span class="badge inc" data-p="inq dueno">Incluida</span><span class="badge cond" data-p="arr">Ojo si queda vacía</span></summary>
+        <div class="spec-body">
+          <div class="spec-row"><span>Qué la activa</span><div><ul><li><b>Robo con violencia</b> de fuera hacia dentro, <b>dejando señales visibles</b></li><li><b>Asalto</b>, con violencia física o moral sobre una persona</li></ul><p>También los daños al forzar la entrada.</p></div></div>
+          <div class="spec-row"><span>Cuánto pagan</span><div><p>Hasta la suma asegurada, con tres sublímites:</p><ul><li>Joyas, relojes, arte: <span class="money">$46,924</span> por artículo o juego, tope global <b>10%</b> de la suma, <b>por vigencia</b></li><li>Efectivo: <b>3%</b> de la suma, máximo <span class="money">$23,462</span> <b>al año</b></li><li>Menaje común: sin sublímite por pieza</li></ul></div></div>
+          <div class="spec-row"><span>Condiciones</span><div><p>Carpeta de investigación del MP <b>ratificada por el asegurado</b>, con detalle de los bienes. La asistencia legal manda abogado gratis para levantarla.</p><p>Si te dieron descuento por alarma o rejas y no existen al momento del robo, reducen la indemnización en la misma proporción del descuento.</p></div></div>
+          <div class="spec-row"><span>Qué no entra</span><div><ul><li><b>Hurto</b>: robo sin violencia ni intimidación</li><li>Robo en inmueble <b>deshabitado o abandonado</b></li></ul>
+            <p class="tuyo" data-p="arr">Esta exclusión es la tuya. Si la casa se queda vacía entre un inquilino y otro, el robo puede no pagarse. Si eso pasa seguido, hay que hablarlo antes de emitir.</p></div></div>
+        </div>
+      </details>
+
+      <details class="spec" data-na="arr">
+        <summary><span class="spec-name">Lo que traes fuera de casa<small>Artículos en tránsito · cobertura mundial</small></span>
+          <span class="badge opt" data-p="inq dueno">Opcional</span><span class="badge na" data-p="arr">No aplica</span></summary>
+        <div class="spec-body">
+          <div class="spec-row"><span>Qué la activa</span><div><ul><li><b>Asalto</b>, con violencia física o moral</li><li>Robo aprovechando que un accidente o enfermedad repentina te dejó inconsciente</li></ul><p><b>No importa dónde</b>: opera en todo el mundo.</p></div></div>
+          <div class="spec-row"><span>Cuánto pagan</span><div><p><span class="money">$70,386</span> por artículo <b>o juego</b>, con tope la suma contratada.</p></div></div>
+          <div class="spec-row"><span>Condiciones</span><div><p>Cubre al titular, cónyuge, padres e hijos <b>que vivan permanentemente en el domicilio asegurado</b>.</p><p class="tuyo" data-p="arr">Como no vives en la casa asegurada, no te sirve en esta póliza. Va en la de la casa donde vives.</p></div></div>
+          <div class="spec-row"><span>Qué no entra</span><div><ul><li><b>Hurto y extravío</b>, con todas sus letras</li><li>Bicis y patines de uso profesional</li><li>Dinero en efectivo</li></ul></div></div>
+        </div>
+      </details>
+
+      <details class="spec" data-na="arr">
+        <summary><span class="spec-name">Joyería con avalúo<small>Solo si tienes piezas de más de $46,924</small></span>
+          <span class="badge opt" data-p="inq dueno">Opcional</span><span class="badge na" data-p="arr">No aplica</span></summary>
+        <div class="spec-body">
+          <div class="spec-row"><span>Cuánto pagan</span><div><p>El valor de reposición soportado por avalúo o factura, sin el tope de 400 UMA.</p></div></div>
+          <div class="spec-row"><span>Condiciones</span><div><p>⚠️ Textual: <i>«De no contar con factura y/o avalúo, el monto máximo indemnizable por artículo o juego será de 400 UMA»</i>. Sin papel pagas la prima extra y de todas formas te topan en <span class="money">$46,924</span>. <b>El avalúo se saca antes de emitir.</b></p></div></div>
+        </div>
+      </details>
+
+      <details class="spec" data-na="arr">
+        <summary><span class="spec-name">Equipo de trabajo en casa<small>Teletrabajo, porque contenidos excluye lo profesional</small></span>
+          <span class="badge opt" data-p="inq dueno">Opcional</span><span class="badge na" data-p="arr">No aplica</span></summary>
+        <div class="spec-body">
+          <div class="spec-row"><span>Qué la activa</span><div><p>Daño o robo del equipo con el que trabajas desde casa.</p></div></div>
+          <div class="spec-row"><span>Condiciones</span><div><p>⚠️ <b>Solo opera dentro de la casa.</b> Un portátil de más de 3 años se paga a valor real.</p></div></div>
+        </div>
+      </details>
+
+      <details class="spec">
+        <summary><span class="spec-name">Rotura de cristales<small>Ventanas, espejos, canceles, domos</small></span><span class="badge inc">Incluida</span></summary>
+        <div class="spec-body">
+          <div class="spec-row"><span>Qué la activa</span><div><p>Rotura de cristales, vitrales y domos del inmueble, y de canceles y espejos de los contenidos, <b>con sus marcos</b> e instalación.</p></div></div>
+          <div class="spec-row"><span>Qué no entra</span><div><p>Marcos de material distinto al cubierto y roturas de mala fe.</p></div></div>
+        </div>
+      </details>
+
+      <details class="spec">
+        <summary><span class="spec-name">Responsabilidad civil<small>Lo que le debes a otra persona</small></span>
+          <span class="badge inc" data-p="inq dueno">Incluida</span><span class="badge cond" data-p="arr">Con una raya</span></summary>
+        <div class="spec-body">
+          <div class="spec-row"><span>Qué la activa</span><div><p>Que por un hecho u omisión <b>no doloso</b> alguien ajeno sufra un daño y resultes civilmente responsable. Nombra expresamente: derrame de agua accidental, obras menores, <b>daños de tus mascotas</b>, bicis y vehículos no motorizados, viajes dentro y fuera del país, áreas comunes del condominio.</p></div></div>
+          <div class="spec-row"><span>Cuánto pagan</span><div><p>Hasta la suma asegurada, como <b>bolsa única</b> del año. Gastos de abogado: hasta el <b>50%</b> de la suma <b>y en adición a ella</b>. RC en exceso de auto: <span class="money">$100,000</span> fijos.</p></div></div>
+          <div class="spec-row"><span>Condiciones</span><div><p><b>Sin coaseguro</b>, salvo las lesiones de la trabajadora doméstica (<b>10%</b>). Su muerte o invalidez: sin deducible ni coaseguro.</p><p>El texto cubre la responsabilidad <i>«derivada de las actividades privadas y familiares, como arrendatario y/o propietario y/o arrendador»</i> del inmueble asegurado.</p></div></div>
+          <div class="spec-row"><span>Qué no entra</span><div><ul><li><b>La propia familia asegurada</b>: no son terceros. La única excepción es la trabajadora doméstica contratada directo</li><li>Personal de una <b>empresa</b> de limpieza</li><li>Lo que derive de <b>la explotación de un negocio, oficio o servicio retribuido</b></li><li>Vehículos de motor, embarcaciones, aeronaves; multas y daños punitivos</li></ul>
+            <p class="tuyo" data-p="arr">El papel de arrendador está nombrado, así que rentar con <b>contrato a alguien que vive ahí</b> es actividad privada. Rentar <b>por noches a huéspedes que rotan</b> es servicio retribuido y queda fuera: un huésped de Airbnb lesionado no entra aquí.</p></div></div>
+        </div>
+      </details>
+
+      <details class="spec" data-na="dueno arr">
+        <summary><span class="spec-name">RC del arrendatario<small>El daño que le causes a la casa que rentas</small></span>
+          <span class="badge inc" data-p="inq">Incluida</span><span class="badge na" data-p="dueno">No aplica</span><span class="badge na" data-p="arr">Es la de tu inquilino</span></summary>
+        <div class="spec-body">
+          <div class="spec-row"><span>Qué la activa</span><div><p>Un daño <b>al inmueble rentado</b> que te imputen legalmente, únicamente <b>por incendio o explosión</b>.</p></div></div>
+          <div class="spec-row"><span>Condiciones</span><div><p>Va adicional a la RC familiar, con los mismos términos y límites.</p></div></div>
+          <div class="spec-row"><span>Qué no entra</span><div><p>Cualquier daño que no sea incendio o explosión. Si rompes un piso o tumbas una pared, no responde.</p>
+            <p class="tuyo" data-p="arr">Es la cobertura que conviene que tenga <b>tu inquilino</b> en su propia póliza: si él provoca un incendio, responde por tu casa. Se puede pedir en el contrato.</p></div></div>
+        </div>
+      </details>
+
+      <details class="spec" data-na="arr">
+        <summary><span class="spec-name">Si la casa queda inhabitable<small>Gastos extraordinarios</small></span>
+          <span class="badge cond" data-p="inq">Solo la diferencia</span><span class="badge inc" data-p="dueno">Incluida</span><span class="badge na" data-p="arr">No aplica: ve pérdida de rentas</span></summary>
+        <div class="spec-body">
+          <div class="spec-row"><span>Qué la activa</span><div><p>Un criterio funcional: que el inmueble quede en <i>«condiciones inhabitables que obliguen al Asegurado a mudarse a otra vivienda a fin de continuar con su nivel de vida»</i>. Lo decide el efecto, no el tamaño del daño. Tiene que venir de un riesgo de incendio edificio o contenidos según los tengas; temblor y huracán tienen su propia versión, que se contrata aparte.</p></div></div>
+          <div class="spec-row"><span>Cuánto pagan</span><div><p>Mudanza; hotel, casa de huéspedes, departamento o casa; almacenamiento temporal de tus muebles con su seguro de transporte. Bolsa única con tope la suma de esta cobertura.</p>
+            <p class="tuyo" data-p="inq">El condicionado agrega: <i>«en caso de que el Asegurado sea arrendatario, la Indemnización… se limita al pago de la diferencia en el costo de la renta»</i>. Si pagabas $10,000 y te mudas a una de $14,000, te cubren $4,000 al mes.</p>
+            <p class="tuyo" data-p="dueno">Como dueño cobras los conceptos completos: mudanza, hotel o renta temporal y bodega.</p>
+            <p class="tuyo" data-p="arr">Esta cobertura paga cuando el asegurado se tiene que mudar. Tú no vives ahí, así que lo que te protege es la <b>pérdida de rentas</b>.</p></div></div>
+          <div class="spec-row"><span>Condiciones</span><div><p><b>Máximo seis meses</b> desde el siniestro, aunque parte caiga fuera de vigencia. Deducible y coaseguro. No opera si la póliza es de condominio.</p></div></div>
+          <div class="spec-row"><span>Qué no entra</span><div><p>Depósitos, fianzas, impuestos, y servicios: luz, teléfono, gas, internet, cable.</p></div></div>
+        </div>
+      </details>
+
+      <details class="spec" data-na="inq dueno">
+        <summary><span class="spec-name">Pérdida de rentas<small>La renta que dejas de cobrar</small></span>
+          <span class="badge na" data-p="inq dueno">No aplica</span><span class="badge core" data-p="arr">Tu cobertura clave</span></summary>
+        <div class="spec-body">
+          <div class="spec-row"><span>Qué la activa</span><div><p>Que un siniestro cubierto deje el inmueble inutilizable y dejes de percibir la renta.</p></div></div>
+          <div class="spec-row"><span>Cuánto pagan</span><div><p>Lo que dejas de cobrar, <b>hasta 6 meses</b>, con tope la suma contratada.</p></div></div>
+          <div class="spec-row"><span>Condiciones</span><div><ul><li><b>Contrato de arrendamiento vigente y firmado</b> por las dos partes</li><li><b>Comprobante del último pago</b> anterior al siniestro</li><li>Rentado <b>como casa habitación</b></li><li>Inquilino que <b>no sea cónyuge ni pariente hasta segundo grado</b></li><li>Que no esté <b>deshabitado</b>: se paga la renta interrumpida, no la que no tenías</li></ul></div></div>
+          <div class="spec-row"><span>Qué no entra</span><div><p>Retrasos porque no tengas con qué reconstruir, porque la autoridad cancele un permiso, por fallas de la propia reconstrucción, o por algo que sea responsabilidad del inquilino.</p></div></div>
+        </div>
+      </details>
+
+      <details class="spec">
+        <summary><span class="spec-name">Asistencias<small>Lo que usas aunque nunca tengas un siniestro</small></span><span class="badge inc">Incluida</span></summary>
+        <div class="spec-body">
+          <div class="spec-row"><span>Qué incluye</span><div><ul><li><b>Orientación médica y videoconsulta con receta digital:</b> sin costo, ilimitadas, 24/365</li><li><b>Asistencia legal:</b> sin costo ni límite de eventos, con abogado que te acompaña al MP</li><li><b>Ambulancia:</b> la <b>primera del año</b> sin costo; las siguientes, tarifa de convenio</li><li><b>Reparaciones urgentes del hogar:</b> <span class="money">$1,500</span> por evento</li><li><b>Consulta a domicilio:</b> costo preferencial, la pagas tú</li></ul></div></div>
+          <div class="spec-row"><span>Condiciones</span><div><p>La ambulancia atiende a <b>toda persona que esté dentro del inmueble</b>. Las de hogar operan en la ubicación asegurada.</p></div></div>
+          <div class="spec-row"><span>Qué no entra</span><div><p>En lo médico: autolesiones, actos delictivos, preexistentes, crónicas o recurrentes, trasplantes y últimos meses de embarazo.</p></div></div>
+        </div>
+      </details>
+
+      <details class="spec">
+        <summary><span class="spec-name">Temblor y huracán<small>No vienen incluidos. Nunca</small></span>
+          <span class="badge opt" data-p="inq">Opcional</span><span class="badge cond" data-p="dueno arr">La decisión grande</span></summary>
+        <div class="spec-body">
+          <div class="spec-row"><span>Qué la activa</span><div><p>Terremoto, erupción volcánica y riesgos hidrometeorológicos. <b>Excluidos de la base</b>; se contratan aparte, con suma propia y versiones propias para contenidos, escombros y gastos extraordinarios.</p></div></div>
+          <div class="spec-row"><span>Condiciones</span><div><p>Lo hidrometeorológico se agrupa en <b>72 horas</b> (<b>168</b> para inundación): todo lo de esa ventana es un siniestro y un deducible. Deducible y coaseguro propios, normalmente más altos.</p>
+            <p class="tuyo" data-p="inq">Aquí solo estarían en juego tus cosas, así que pesa menos.</p>
+            <p class="tuyo" data-p="dueno arr">Aquí está en juego la construcción entera. Es la conversación seria, sobre todo en costa o zona sísmica.</p></div></div>
+          <div class="spec-row"><span>Qué no entra</span><div><p>Si no aparecen en tu carátula, no los tienes. Es el error más caro con este producto.</p></div></div>
+        </div>
+      </details>
+    </div>
+
+  </section>
+
+  <!-- 03 · COMPARAR -->
+  <section id="comparar">
+    <div class="sec-head"><span class="sec-num">03</span><h2>Los tres casos, lado a lado</h2></div>
+    <p class="sec-sub">La columna marcada es la tuya. Sirve también para ver qué cambia el día que compres, o el día que te mudes y la rentes.</p>
+    <div class="tw"><table class="cmp">
+      <thead><tr><th>Qué pasa si…</th><th class="c-inq">Rentas donde vives</th><th class="c-dueno">Eres dueño y vives ahí</th><th class="c-arr">Eres dueño y la rentas</th></tr></thead>
+      <tbody>
+        <tr><td>Se incendia la construcción</td><td class="c-inq no-t">No es tuya: la cubre el dueño</td><td class="c-dueno yes-t">Te la pagan</td><td class="c-arr yes-t">Te la pagan</td></tr>
+        <tr><td>Se queman los muebles</td><td class="c-inq yes-t">Los tuyos, sí</td><td class="c-dueno yes-t">Sí</td><td class="c-arr">Solo los tuyos; los del inquilino, no</td></tr>
+        <tr><td>Queda inhabitable</td><td class="c-inq">La <b>diferencia</b> de renta, hasta 6 meses</td><td class="c-dueno yes-t">Mudanza, hotel y bodega, hasta 6 meses</td><td class="c-arr">Tú no te mudas: <b>pérdida de rentas</b>, hasta 6 meses</td></tr>
+        <tr><td>Alguien de la casa le causa un daño al inmueble</td><td class="c-inq">Tu RC de arrendatario, solo incendio o explosión</td><td class="c-dueno">No aplica: la casa es tuya</td><td class="c-arr">Tu póliza repara tu casa; la RC de tu inquilino, si tiene</td></tr>
+        <tr><td>Una fuga inunda al vecino</td><td class="c-inq yes-t">Cubierto</td><td class="c-dueno yes-t">Cubierto</td><td class="c-arr">Si la responsabilidad es tuya como dueño; si fue culpa del inquilino, la suya</td></tr>
+        <tr><td>Entran a robar con violencia</td><td class="c-inq yes-t">Sí</td><td class="c-dueno yes-t">Sí</td><td class="c-arr">Sí, salvo que esté deshabitada</td></tr>
+        <tr><td>Un huésped que paga por noche se lesiona</td><td class="c-inq">No aplica</td><td class="c-dueno">No aplica</td><td class="c-arr no-t">Fuera: servicio retribuido</td></tr>
+        <tr><td>Tiembla</td><td class="c-inq">Solo tus cosas, si lo contrataste</td><td class="c-dueno">La casa entera, si lo contrataste</td><td class="c-arr">La casa entera, si lo contrataste</td></tr>
+        <tr><td>Videoconsulta médica con receta</td><td class="c-inq yes-t">Desde el día uno</td><td class="c-dueno yes-t">Desde el día uno</td><td class="c-arr yes-t">Desde el día uno</td></tr>
+        <tr><td>Lo que pagas al año</td><td class="c-inq yes-t">La versión más barata</td><td class="c-dueno">Sube: se agrega el edificio</td><td class="c-arr">Edificio más pérdida de rentas</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="call good" data-p="inq">
+      <strong>Y el día que compres</strong>
+      <p>No empiezas de cero: se endosa tu póliza, se agrega el edificio por valor de reconstrucción y la RC del arrendatario pasa a ser de propietario. Avísame antes de firmar; si es con crédito, el banco pedirá ser beneficiario preferente y lo tramito yo.</p>
+    </div>
+    <div class="call warn" data-p="dueno">
+      <strong>Si algún día la rentas</strong>
+      <p>Avísame antes. Cambia de caso: se abre la pérdida de rentas, tus contenidos se reducen a lo que dejes amueblado, y la RC queda limitada a renta con contrato. Rentar por noches se arma con otra póliza.</p>
+    </div>
+  </section>
+
+  <!-- 04 · NUMEROS -->
+  <section id="numeros">
+    <div class="sec-head"><span class="sec-num">04</span><h2>Tus números</h2></div>
+    <p class="sec-sub">Los topes no son cifras fijas: se calculan sobre lo que contrates. Lo que llenaste en tu ficha ya está aquí; mueve los valores y mira.</p>
+
+    <div class="panel" data-p="inq">
+      <p class="panel-label">Si tu casa queda inhabitable</p>
+      <h3>Lo que te pagarían por mudarte</h3>
+      <div class="rowfields">
+        <div class="field"><label for="cRentaAct">Renta que pagas hoy</label><input type="text" inputmode="numeric" id="cRentaAct" value="10000"></div>
+        <div class="field"><label for="cRentaNva">Renta de un lugar similar</label><input type="text" inputmode="numeric" id="cRentaNva" value="14000"></div>
+        <div class="field"><label for="cMesesInq">Meses fuera <output id="oMesesInq">4</output></label><input type="range" id="cMesesInq" min="1" max="6" step="1" value="4"></div>
+      </div>
+      <div class="out"><div class="ledger">
+        <div class="row"><span>Diferencia mensual</span><span id="rDifMes">—</span></div>
+        <div class="row total"><span>Lo que cubriría la póliza</span><b id="rDifTot">—</b></div>
+      </div>
+      <p class="note-line" id="nInq"></p></div>
+    </div>
+
+    <div class="panel" data-p="dueno">
+      <p class="panel-label">Si tu casa queda inhabitable</p>
+      <h3>Cuánto contratar de gastos extraordinarios</h3>
+      <div class="rowfields">
+        <div class="field"><label for="cRentaTmp">Renta mensual de un lugar similar</label><input type="text" inputmode="numeric" id="cRentaTmp" value="15000"></div>
+        <div class="field"><label for="cMud">Mudanza y bodega, ida y vuelta</label><input type="text" inputmode="numeric" id="cMud" value="20000"></div>
+        <div class="field"><label for="cMesesDue">Meses fuera <output id="oMesesDue">6</output></label><input type="range" id="cMesesDue" min="1" max="6" step="1" value="6"></div>
+      </div>
+      <div class="out"><div class="ledger">
+        <div class="row"><span>Renta temporal</span><span id="rTmp">—</span></div>
+        <div class="row"><span>Mudanza y bodega</span><span id="rMud">—</span></div>
+        <div class="row total"><span>Suma sugerida para esta cobertura</span><b id="rGE">—</b></div>
+      </div>
+      <p class="note-line">Es una sugerencia para elegir la suma, no una cifra del condicionado. Recuerda que depósitos, fianzas y servicios no entran, y que el máximo son seis meses.</p></div>
+    </div>
+
+    <div class="panel" data-p="arr">
+      <p class="panel-label">Si un siniestro la deja inutilizable</p>
+      <h3>Tu pérdida de rentas, y si hoy la cobrarías</h3>
+      <div class="rowfields">
+        <div class="field"><label for="cRentaArr">Renta mensual que cobras</label><input type="text" inputmode="numeric" id="cRentaArr" value="12000"></div>
+        <div class="field"><label for="cMesesArr">Meses a cubrir <output id="oMesesArr">6</output></label><input type="range" id="cMesesArr" min="1" max="6" step="1" value="6"></div>
+      </div>
+      <div class="out"><div class="ledger">
+        <div class="row total"><span>Suma de pérdida de rentas</span><b id="rPR">—</b></div>
+      </div>
+      <ul class="checks" id="prChecks"></ul>
+      <p class="note-line" id="nArr"></p></div>
+    </div>
+
+    <div class="panel" data-p="dueno arr">
+      <p class="panel-label">El margen de los metros</p>
+      <h3>Que la medida no te cueste doble deducible</h3>
+      <div class="rowfields">
+        <div class="field"><label for="cM2">m² construidos que declaras</label><input type="text" inputmode="numeric" id="cM2" value="140"></div>
+        <div class="field"><label for="cRec">Valor de reconstrucción</label><input type="text" inputmode="numeric" id="cRec" value="2100000"></div>
+      </div>
+      <div class="out"><div class="ledger">
+        <div class="row"><span>Si al ajuste miden entre</span><span id="rM2rango">—</span></div>
+        <div class="row"><span>Tu valor por m² <small>reconstrucción ÷ m²</small></span><span id="rM2val">—</span></div>
+      </div>
+      <p class="note-line">Más de <b>10%</b> de diferencia en m² entre lo declarado y lo real es una de las dos causas de doble deducible. Mejor medir que calcular. El valor por m² sirve para compararlo con lo que te diga un constructor de tu zona.</p></div>
+    </div>
+
+    <div class="panel">
+      <p class="panel-label">Sublímites que dependen de tu suma</p>
+      <h3>Tus topes reales</h3>
+      <div class="rowfields">
+        <div class="field"><label for="saRobo">Suma asegurada de robo <output id="oRobo">$500,000</output></label><input type="range" id="saRobo" min="100000" max="1500000" step="50000" value="500000"></div>
+        <div class="field"><label for="saRC">Suma asegurada de RC <output id="oRC">$1,000,000</output></label><input type="range" id="saRC" min="250000" max="5000000" step="250000" value="1000000"></div>
+      </div>
+      <div class="out"><div class="ledger">
+        <div class="row"><span>Efectivo en casa <small>3% o 200 UMA, el menor, al año</small></span><span id="rEfectivo">—</span></div>
+        <div class="row"><span>Joyas sin avalúo <small>por artículo</small></span><span id="rJoya">—</span></div>
+        <div class="row"><span>Tope total de joyería <small>10% de la suma</small></span><span id="rJoyaT">—</span></div>
+        <div class="row"><span>Gastos de abogado <small>adicionales a la suma</small></span><span id="rDefensa">—</span></div>
+        <div class="row total"><span>Le responde a un tercero hasta</span><b id="rRC">—</b></div>
+      </div>
+      <p class="note-line" id="notaTopes"></p></div>
+    </div>
+
+    <h3>Qué mueve el precio</h3>
+    <div class="drivers">
+      <div class="drv" data-p="dueno arr"><div class="drv-t">Suma asegurada del edificio<small>Lo que costaría reconstruir, no lo que vale con terreno. La base de todo lo demás.</small></div><div><div class="meter m-alto"><i></i></div><em>Alto</em></div></div>
+      <div class="drv"><div class="drv-t">Temblor e hidrometeorológicos<small>No vienen en la base; agregarlos es lo que más mueve la prima, y en costa pesa el doble.</small></div><div><div class="meter m-alto"><i></i></div><em>Alto</em></div></div>
+      <div class="drv"><div class="drv-t">Ubicación y tipo de construcción<small>Zona, muros y techos, año, metros cuadrados.</small></div><div><div class="meter m-alto"><i></i></div><em>Alto</em></div></div>
+      <div class="drv" data-p="inq dueno"><div class="drv-t">Suma asegurada de contenidos<small>Todo lo que hay adentro.</small></div><div><div class="meter m-medio"><i></i></div><em>Medio</em></div></div>
+      <div class="drv" data-p="arr"><div class="drv-t">Suma de pérdida de rentas<small>Renta mensual por los meses que elijas, hasta seis.</small></div><div><div class="meter m-medio"><i></i></div><em>Medio</em></div></div>
+      <div class="drv"><div class="drv-t">Deducible y coaseguro que elijas<small>Entre más absorbas tú, menos pagas al año.</small></div><div><div class="meter m-medio"><i></i></div><em>Medio</em></div></div>
+      <div class="drv"><div class="drv-t">Sumas de robo y de RC<small>Cada una con su propio techo.</small></div><div><div class="meter m-medio"><i></i></div><em>Medio</em></div></div>
+      <div class="drv"><div class="drv-t">Medidas de seguridad<small>Alarma, rejas, caseta: descuento, y obligación de mantenerlas.</small></div><div><div class="meter m-bajo"><i></i></div><em>Ajuste</em></div></div>
+      <div class="drv" data-p="inq dueno"><div class="drv-t">Coberturas sueltas<small>Joyería, teletrabajo, artículos en tránsito.</small></div><div><div class="meter m-bajo"><i></i></div><em>Ajuste</em></div></div>
+    </div>
+    <p class="muted" style="font-size:13.5px">El orden es criterio de suscripción, no una tarifa publicada. El número exacto sale del cotizador con tus datos.</p>
+  </section>
+
+  <!-- 05 · CASOS -->
+  <section id="casos">
+    <div class="sec-head"><span class="sec-num">05</span><h2>Cuándo sí y cuándo no</h2></div>
+    <p class="sec-sub">La regla que explica casi todo: <b>la póliza no pregunta dónde pasó, pregunta cómo pasó.</b> Violencia contra la casa o contra una persona, paga. La cosa simplemente desapareció, no. Aquí solo ves los casos que aplican a tu situación.</p>
+
+    <div class="filters" role="group" aria-label="Filtrar casos">
+      <button type="button" data-f="all" aria-pressed="true">Todos</button>
+      <button type="button" data-f="si" aria-pressed="false">Sí paga</button>
+      <button type="button" data-f="no" aria-pressed="false">No paga</button>
+      <button type="button" data-f="parcial" aria-pressed="false">Depende</button>
+      <span class="count" id="count"></span>
+    </div>
+
+    <div class="cases" id="cases">
+      <details class="case" data-v="si" data-p="inq dueno arr"><summary><span class="caret">▸</span><span class="case-q">Entran forzando la puerta y se llevan cosas</span><span class="chip si">Sí paga</span></summary>
+        <div class="case-body"><p>Violencia contra el inmueble con huellas visibles: el caso central de robo. El menaje no tiene sublímite por artículo; joyas, arte y efectivo sí.</p></div></details>
+      <details class="case" data-v="parcial" data-p="arr"><summary><span class="caret">▸</span><span class="case-q">Entre un inquilino y otro está vacía y entran a robar</span><span class="chip parcial">Depende</span></summary>
+        <div class="case-body"><p>Robo no aplica en inmueble <b>deshabitado o abandonado</b>. Unos días entre contratos no es lo mismo que meses vacía, pero hay que confirmarlo antes de emitir si te pasa seguido.</p></div></details>
+      <details class="case" data-v="si" data-p="arr"><summary><span class="caret">▸</span><span class="case-q">Tu inquilino provoca un incendio y daña la casa</span><span class="chip si">Sí paga</span></summary>
+        <div class="case-body"><p>Tu cobertura de edificio responde por tu casa: es todo riesgo y no pregunta quién lo provocó, siempre que no haya sido doloso. Si tu inquilino tiene su RC de arrendatario, esa responde por él.</p></div></details>
+      <details class="case" data-v="si" data-p="arr"><summary><span class="caret">▸</span><span class="case-q">Por el incendio no la puedes rentar cuatro meses</span><span class="chip si">Sí paga</span></summary>
+        <div class="case-body"><p>Pérdida de rentas, hasta seis meses, <b>si cumples las cinco condiciones</b>: contrato firmado, comprobante del último pago, uso casa habitación, inquilino que no sea pariente cercano, y que no estuviera deshabitada.</p></div></details>
+      <details class="case" data-v="no" data-p="arr"><summary><span class="caret">▸</span><span class="case-q">Le roban sus cosas a tu inquilino</span><span class="chip no">No paga</span></summary>
+        <div class="case-body"><p>Tus contenidos son solo lo tuyo. Lo de tu inquilino lo cubre su propia póliza de contenidos, si la tiene.</p></div></details>
+      <details class="case" data-v="no" data-p="arr"><summary><span class="caret">▸</span><span class="case-q">Un huésped de Airbnb se resbala y te demanda</span><span class="chip no">No paga</span></summary>
+        <div class="case-body"><p>Hospedaje por noches es servicio retribuido, y la RC de este producto excluye la explotación de un negocio o servicio. Eso se cubre con otra póliza.</p></div></details>
+      <details class="case" data-v="si" data-p="inq dueno"><summary><span class="caret">▸</span><span class="case-q">Te asaltan en la calle y te quitan la mochila o el reloj</span><span class="chip si">Sí paga</span></summary>
+        <div class="case-body"><p>Con <b>Artículos en tránsito</b>, que se contrata aparte, y funciona en todo el mundo. Hasta $70,386 por artículo o juego.</p></div></details>
+      <details class="case" data-v="no" data-p="inq dueno"><summary><span class="caret">▸</span><span class="case-q">Te abren el coche estacionado y se llevan lo de adentro</span><span class="chip no">No paga</span></summary>
+        <div class="case-body"><p>No había persona a quién amenazar, así que no hubo asalto: es hurto. Que hayan roto un vidrio no lo cambia; eso es terreno de la póliza de auto. Si te asaltan estando tú dentro, sí paga.</p></div></details>
+      <details class="case" data-v="no" data-p="inq dueno"><summary><span class="caret">▸</span><span class="case-q">Te bajan la cartera sin sentir, o pierdes el celular</span><span class="chip no">No paga</span></summary>
+        <div class="case-body"><p>Sin violencia ni intimidación es hurto; perderlo es extravío. Los dos excluidos por nombre.</p></div></details>
+      <details class="case" data-v="parcial" data-p="inq dueno"><summary><span class="caret">▸</span><span class="case-q">Te roban efectivo que tenías en casa</span><span class="chip parcial">Depende</span></summary>
+        <div class="case-body"><p>El efectivo tiene techo propio: 3% de tu suma de robo, máximo $23,462 <b>al año</b>. Tener caja fuerte no cambia nada; la palabra ni aparece en el condicionado.</p></div></details>
+      <details class="case" data-v="si" data-p="inq dueno"><summary><span class="caret">▸</span><span class="case-q">Se rompe una tubería tuya e inundas al vecino</span><span class="chip si">Sí paga</span></summary>
+        <div class="case-body"><p>RC por derrame de agua accidental e imprevisto: el siniestro de RC más común en una casa.</p></div></details>
+      <details class="case" data-v="si" data-p="inq dueno"><summary><span class="caret">▸</span><span class="case-q">Tu perro muerde a alguien</span><span class="chip si">Sí paga</span></summary>
+        <div class="case-body"><p>La RC nombra los daños de mascotas y animales domésticos o guardianes, más los gastos de abogado.</p></div></details>
+      <details class="case" data-v="si" data-p="inq dueno"><summary><span class="caret">▸</span><span class="case-q">Se lesiona la señora que te ayuda en casa</span><span class="chip si">Sí paga</span></summary>
+        <div class="case-body"><p>Si la contratas <b>tú directo</b>. Lesiones con 10% de coaseguro; muerte o invalidez sin deducible. Si viene de una empresa de limpieza, responde su patrón.</p></div></details>
+      <details class="case" data-v="no" data-p="inq dueno"><summary><span class="caret">▸</span><span class="case-q">Se cae uno de tus hijos o tu pareja en casa</span><span class="chip no">No paga</span></summary>
+        <div class="case-body"><p>Tu familia está asegurada en la misma póliza, así que no es «tercero». Para eso existe gastos médicos.</p></div></details>
+      <details class="case" data-v="no" data-p="inq dueno arr"><summary><span class="caret">▸</span><span class="case-q">Se lesiona un cliente en tu negocio</span><span class="chip no">No paga</span></summary>
+        <div class="case-body"><p>Esta RC es de la vida privada. Lo de un negocio va en una póliza de negocio, y al revés: la del local no cubre tu casa.</p></div></details>
+      <details class="case" data-v="parcial" data-p="inq"><summary><span class="caret">▸</span><span class="case-q">Le haces un daño a la casa que rentas</span><span class="chip parcial">Depende</span></summary>
+        <div class="case-body"><p>Tu RC de arrendatario responde <b>solo si fue por incendio o explosión</b> y te lo imputan legalmente. Un piso roto o una pared tumbada, no.</p></div></details>
+      <details class="case" data-v="parcial" data-p="inq"><summary><span class="caret">▸</span><span class="case-q">Un incendio te saca de la casa tres meses</span><span class="chip parcial">Depende</span></summary>
+        <div class="case-body"><p>Gastos extraordinarios, pero como inquilino te cubren <b>la diferencia</b> entre la renta nueva y la que pagabas. El depósito de la nueva renta lo pones tú.</p></div></details>
+      <details class="case" data-v="si" data-p="dueno"><summary><span class="caret">▸</span><span class="case-q">Un incendio te saca de tu casa tres meses</span><span class="chip si">Sí paga</span></summary>
+        <div class="case-body"><p>Gastos extraordinarios completos: mudanza, hotel o renta temporal y bodega, hasta seis meses y hasta la suma contratada.</p></div></details>
+      <details class="case" data-v="no" data-p="inq dueno arr"><summary><span class="caret">▸</span><span class="case-q">Tiembla o entra un huracán y no lo contrataste</span><span class="chip no">No paga</span></summary>
+        <div class="case-body"><p>No vienen en la base. Si no se contratan expresamente, no existen.</p></div></details>
+      <details class="case" data-v="parcial" data-p="inq dueno"><summary><span class="caret">▸</span><span class="case-q">Se quema o te roban la laptop con la que trabajas</span><span class="chip parcial">Depende</span></summary>
+        <div class="case-body"><p>Contenidos excluye lo profesional. Necesitas Equipo de teletrabajo, y solo opera dentro de casa. Más de 3 años, valor real.</p></div></details>
+      <details class="case" data-v="si" data-p="inq dueno"><summary><span class="caret">▸</span><span class="case-q">Alguien se pone mal en tu casa y necesita ambulancia</span><span class="chip si">Sí paga</span></summary>
+        <div class="case-body"><p>Atiende a toda persona dentro del inmueble. La primera del año sin costo; las siguientes, tarifa de convenio.</p></div></details>
+    </div>
+  </section>
+
+  <!-- 06 · DUDAS -->
+  <section id="dudas">
+    <div class="sec-head"><span class="sec-num">06</span><h2>Dudas frecuentes</h2></div>
+    <p class="sec-sub">Las que salen en casi todas las conversaciones sobre este producto.</p>
+    <div class="faq">
+      <details class="q" data-p="inq"><summary>La casa no es mía, ¿no le toca al dueño asegurarla?</summary><div class="q-body">
+        <p>Le toca asegurar <b>la construcción</b>. Tus muebles, tu responsabilidad civil y dónde dormir si algo pasa no los cubre su póliza. Por eso la tuya es más barata: no pagas edificio.</p></div></details>
+      <details class="q" data-p="arr"><summary>Mi inquilino ya tiene seguro, ¿necesito el mío?</summary><div class="q-body">
+        <p>Sí. El suyo cubre <b>sus cosas</b> y, con RC del arrendatario, el daño que él le cause a tu casa por incendio o explosión. La construcción completa, tus muebles y tu renta solo los cubre una póliza tuya.</p></div></details>
+      <details class="q" data-p="arr"><summary>¿Y si la rento por Airbnb?</summary><div class="q-body">
+        <p>Hospedaje por noches con huéspedes que rotan es un servicio retribuido, y la responsabilidad civil de este producto lo excluye. Tampoco encaja en pérdida de rentas, que exige contrato de arrendamiento. Se arma con otra póliza; dímelo antes de cotizar.</p></div></details>
+      <details class="q" data-p="arr"><summary>¿Qué pasa si la casa se queda vacía unos meses?</summary><div class="q-body">
+        <p>Dos efectos: robo no aplica en inmueble deshabitado, y pérdida de rentas paga la renta que se interrumpe, no la que no tenías. Si suele quedar vacía, hablémoslo antes de emitir.</p></div></details>
+      <details class="q" data-p="dueno arr"><summary>¿Por cuánto aseguro la casa?</summary><div class="q-body">
+        <p>Por lo que costaría <b>reconstruirla</b>, no por lo que pagaste ni por lo que vale en el mercado: esos incluyen terreno y ubicación, que no se queman. Y como opera a primer riesgo, si te quedas corto no te recortan un porcentaje; solo baja el techo.</p></div></details>
+      <details class="q" data-p="dueno arr"><summary>Es departamento, ¿cambia algo?</summary><div class="q-body">
+        <p>Sí: un departamento en condominio vertical asegurado por su cuenta se paga a <b>valor comercial</b>, no de reposición, en pérdida total. Conviene saber qué asegura ya el condominio para no pagar dos veces.</p></div></details>
+      <details class="q"><summary>¿Y si no tengo facturas?</summary><div class="q-body">
+        <p><b>No te rechazan el pago: cambia quién le pone precio.</b> Sin factura, la aseguradora cotiza el bien. Valen notas, avalúos, estados de cuenta, correos de compra, y video o fotos cuando se trata de joyas y objetos personales.</p>
+        <p class="muted">Haz hoy un video cuarto por cuarto y guárdalo en la nube, no en la casa.</p></div></details>
+      <details class="q"><summary>¿Si aseguro por menos de lo que vale, me castigan?</summary><div class="q-body">
+        <p>No. Opera a <b>primer riesgo absoluto</b>: declarar de menos limita el techo, pero no te recorta un porcentaje del daño.</p></div></details>
+      <details class="q"><summary>¿Cubre temblor y huracán?</summary><div class="q-body">
+        <p><b>No automáticamente.</b> Se contratan aparte. Si no están en tu carátula, no los tienes.</p></div></details>
+      <details class="q"><summary>¿Qué pasa si cambio algo después de contratar?</summary><div class="q-body">
+        <p>Un cambio que agrave el riesgo se avisa en <b>24 horas</b>, o la aseguradora deja de estar obligada. Si quitas la alarma que te dio descuento, reducen la indemnización en la misma proporción. Es una llamada y un endoso.</p></div></details>
+      <details class="q"><summary>Si me roban, ¿hago yo todo el trámite del MP?</summary><div class="q-body">
+        <p>La denuncia la ratificas tú, pero la asistencia legal te manda abogado sin costo y sin límite de eventos para levantarla.</p></div></details>
+      <details class="q"><summary>¿Las asistencias son gratis?</summary><div class="q-body">
+        <p><b>Sin costo:</b> orientación médica y videoconsulta con receta, ilimitadas; asistencia legal; la primera ambulancia del año. <b>Se pagan:</b> las siguientes ambulancias, la consulta a domicilio y lo que se derive. Las del hogar tienen tope de $1,500 por evento.</p></div></details>
+      <details class="q" data-p="inq dueno"><summary>Tengo joyas, ¿cómo funciona?</summary><div class="q-body">
+        <p>En robo normal, cada pieza hasta <b>$46,924</b>, con tope global del 10% de la suma. Para piezas de más valor está la cobertura de Joyería, que <b>exige avalúo o factura antes de emitir</b>.</p></div></details>
+    </div>
+  </section>
+
+  <!-- 07 · CHAT -->
+  <section id="preguntar">
+    <div class="sec-head"><span class="sec-num">07</span><h2>Pregunta lo que quieras</h2></div>
+    <p class="sec-sub">Escribe tu duda y te contesta aquí mismo, con lo que dice el condicionado y sabiendo cuál es tu caso. Puedes repreguntar las veces que quieras.</p>
+    <div class="chat">
+      <div class="chat-head">
+        <h3>Dudas sobre Hogar Versátil</h3>
+        <p>Responde sobre esta página y las condiciones generales. Lo que no esté ahí, te lo confirma Fernando.</p>
+      </div>
+      <div class="chips" id="chips"></div>
+      <div class="thread" id="thread"></div>
+      <form class="chat-form" id="chatForm">
+        <textarea id="q" rows="1" placeholder="Escribe tu duda…" aria-label="Tu pregunta"></textarea>
+        <button type="submit" class="btn" id="send">Preguntar</button>
+      </form>
+      <p class="chat-foot" id="chatFoot">Las respuestas son orientativas. Lo que manda es la carátula de tu póliza una vez emitida.</p>
+    </div>
+  </section>
+
+  <!-- 08 · SIGUE -->
+  <section id="sigue">
+    <div class="sec-head"><span class="sec-num">08</span><h2>Lo que sigue</h2></div>
+    <p class="sec-sub">Tres pasos, y los plazos que conviene tener a la mano.</p>
+    <div class="steps">
+      <div class="step"><span class="n">1</span><div><h4>Mándame tu ficha</h4><p>La de la sección 1, con el botón de copiar. Lo que no sepas, déjalo en blanco y lo vemos en la llamada.</p></div></div>
+      <div class="step" data-p="inq"><span class="n">2</span><div><h4>Una copia de tu contrato de renta</h4><p>Para ver qué te asigna sobre daños al inmueble y armar bien tu RC de arrendatario.</p></div></div>
+      <div class="step" data-p="dueno"><span class="n">2</span><div><h4>Medidas y fotos de la construcción</h4><p>m² reales, año aproximado, y fotos de fachada, techos y muros. Con eso no hay doble deducible por diferencias.</p></div></div>
+      <div class="step" data-p="arr"><span class="n">2</span><div><h4>Contrato y último recibo de renta</h4><p>Son los dos papeles sin los que la pérdida de rentas no se paga. Si cobras sin recibo, empieza a darlo desde este mes.</p></div></div>
+      <div class="step"><span class="n">3</span><div><h4>El video de la casa</h4><p>Hoy, aunque todavía no contrates. Cuarto por cuarto, con el celular, guardado en la nube. Es lo que decide cuánto te pagan si algo pasa.</p></div></div>
+    </div>
+
+    <h3>Los plazos que tumban reclamaciones</h3>
+    <div class="tw"><table>
+      <thead><tr><th>Qué</th><th>Plazo</th><th>Si no</th></tr></thead>
+      <tbody>
+        <tr><td>Avisar un siniestro</td><td class="num">5 días</td><td>Pueden reducir la indemnización</td></tr>
+        <tr><td>Avisar si llega una demanda</td><td class="num">1 día hábil</td><td>Igual</td></tr>
+        <tr><td>Avisar un cambio que agrave el riesgo</td><td class="num">24 horas</td><td><b>Cesan las obligaciones de la compañía</b></td></tr>
+        <tr><td>Pagar la prima con retraso</td><td class="num">30 días</td><td>La póliza deja de surtir efecto</td></tr>
+        <tr><td>Reclamar después del siniestro</td><td class="num">2 años</td><td>Prescribe</td></tr>
+      </tbody>
+    </table></div>
+
+  </section>
+
+  <footer>
+    <p class="sig">Fernando Dalí Ibarra · Asesor de seguros GNP</p>
+    <p>Basado en las condiciones generales de <span class="mono">Hogar Versátil, septiembre 2025 · FPC031100-N_0925BTW09</span>. Topes en pesos con la UMA 2026 de <span class="mono">$117.31</span> diarios.</p>
+    <p>Documento informativo; no sustituye a la póliza. Las coberturas, sumas, deducibles y exclusiones que apliquen serán las de tu carátula una vez emitida.</p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var UMA = 117.31;
+  var PERFILES = {inq:"Rento donde vivo (inquilino)", dueno:"Soy dueño y vivo ahí", arr:"Soy dueño y la rento (arrendador)"};
+  var HASH = {inquilino:"inq", dueno:"dueno", arrendador:"arr"};
+  function fmt(n){ return "$" + Math.round(n).toLocaleString("es-MX"); }
+  function num(v){ return Number(String(v == null ? "" : v).replace(/[^\d]/g, "")) || 0; }
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+  function lsGet(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }
+  function lsSet(k, v){ try { localStorage.setItem(k, v); } catch(e){} }
+  function $(id){ return document.getElementById(id); }
+
+  var perfil = "dueno";
+  var ans = {};
+  try { ans = JSON.parse(lsGet("hv-ficha") || "{}") || {}; } catch(e){ ans = {}; }
+
+  /* ───── ficha: qué se pregunta, en qué caso y por qué ───── */
+  var ALL = ["inq","dueno","arr"];
+  var CAMPOS = [
+    {id:"nombre", g:"Tú", p:ALL, t:"text", l:"Tu nombre", why:"Para que la cotización y la ficha lleguen a tu nombre."},
+    {id:"ubic", g:"El lugar", p:ALL, t:"text", l:"Dirección o código postal (y el pin de Google Maps si puedes)",
+      why:"Define la <b>zona de tarifa</b> y el riesgo de temblor y huracán. Con el pin reviso en el satélite si hay un lago o laguna cerca."},
+    {id:"lago", g:"El lugar", p:ALL, t:"opt", o:["No","Sí","No sé"], l:"¿Hay lago, laguna o presa a menos de 200 m?",
+      why:"Es una de las dos causas de <b>doble deducible</b>: si existe y no se declara, en un siniestro pagas el deducible dos veces."},
+    {id:"tipo", g:"El lugar", p:ALL, t:"opt", o:["Casa","Departamento"], l:"¿Casa o departamento?",
+      why:"Un departamento en condominio vertical asegurado por su cuenta se paga a <b>valor comercial</b> en pérdida total, y hay que ver qué asegura ya el condominio."},
+    {id:"anio", g:"La construcción", p:["dueno","arr"], t:"num", l:"Año aproximado de construcción",
+      why:"Parte del <b>tipo constructivo</b>. Si el año real cae en otro reglamento que el declarado, hay doble deducible."},
+    {id:"m2", g:"La construcción", p:["dueno","arr"], t:"num", l:"Metros cuadrados construidos",
+      why:"Más de <b>10%</b> de diferencia entre lo declarado y lo real es doble deducible. Mejor medir que calcular."},
+    {id:"muros", g:"La construcción", p:["dueno","arr"], t:"opt", o:["Concreto o tabique","Lámina o ligeros","Madera","Mixto"], l:"Muros y techos",
+      why:"Mueven la prima y, si no coinciden con lo declarado, también causan doble deducible."},
+    {id:"reconst", g:"La construcción", p:["dueno","arr"], t:"num", l:"Valor de reconstrucción, si lo tienes",
+      why:"Es la suma del edificio y <b>lo que más pesa en la prima</b>. No es el precio de compra: ese incluye terreno, que no se quema."},
+    {id:"credito", g:"La construcción", p:["dueno","arr"], t:"opt", o:["No","Sí"], l:"¿Tiene crédito hipotecario?",
+      why:"El banco normalmente pide aparecer como <b>beneficiario preferente</b>. Es un anexo que tramito yo."},
+    {id:"modo", g:"La renta", p:["arr"], t:"opt", o:["Contrato a largo plazo","Por noches (Airbnb, Booking)","Las dos"], l:"¿Cómo la rentas?",
+      why:"La RC de este producto <b>excluye el servicio retribuido</b>, y la pérdida de rentas exige uso casa habitación con contrato."},
+    {id:"renta", g:"La renta", p:["arr"], t:"num", l:"Renta mensual que cobras",
+      why:"La pérdida de rentas paga <b>hasta 6 meses</b> de esta cantidad: de aquí sale la suma a contratar."},
+    {id:"papeles", g:"La renta", p:["arr"], t:"opt", o:["Contrato y recibos","Contrato sin recibos","De palabra"], l:"¿Tienes contrato firmado y recibo de cada pago?",
+      why:"Sin <b>contrato vigente firmado</b> y <b>comprobante del último pago</b>, la pérdida de rentas no se paga."},
+    {id:"pariente", g:"La renta", p:["arr"], t:"opt", o:["No","Sí, cercano","Sí, lejano"], l:"¿Tu inquilino es familiar?",
+      why:"Si es cónyuge o pariente <b>hasta segundo grado</b> (padres, hijos, hermanos, abuelos, nietos), la pérdida de rentas no aplica."},
+    {id:"vacio", g:"La renta", p:["arr"], t:"opt", o:["Casi nunca","Algunas semanas","Meses"], l:"¿Se queda vacía entre un inquilino y otro?",
+      why:"Robo <b>no aplica en inmueble deshabitado</b>, y la pérdida de rentas paga la renta interrumpida, no la que no tenías."},
+    {id:"amueblado", g:"La renta", p:["arr"], t:"opt", o:["Sí","No"], l:"¿La rentas amueblada?",
+      why:"Tus contenidos son <b>solo lo tuyo</b> que dejaste ahí. Sin muebles, casi no necesitas esa cobertura."},
+    {id:"inqSeguro", g:"La renta", p:["arr"], t:"opt", o:["Sí","No","No sabía que existía"], l:"¿Le pides a tu inquilino su propio seguro?",
+      why:"Sus cosas no entran en tu póliza, y su <b>RC del arrendatario</b> es la que responde por un incendio que él cause."},
+    {id:"rentaInq", g:"Tu renta", p:["inq"], t:"num", l:"¿Cuánto pagas de renta al mes?",
+      why:"Si la casa queda inhabitable, a un inquilino le pagan <b>la diferencia</b> entre la renta nueva y esta."},
+    {id:"contratoInq", g:"Tu renta", p:["inq"], t:"opt", o:["Sí","No tengo contrato"], l:"¿Me puedes mandar copia de tu contrato?",
+      why:"Para ver qué te asigna sobre daños al inmueble. Tu RC de arrendatario solo responde por <b>incendio o explosión</b>."},
+    {id:"contenidos", g:"Lo que hay adentro", p:["inq","dueno"], t:"num", l:"¿Cuánto costaría volver a comprar lo que hay adentro?",
+      why:"Es tu <b>suma de contenidos</b>. Un número grueso basta: como opera a primer riesgo, quedarte corto baja el techo pero no te recorta porcentaje."},
+    {id:"muebArr", g:"Lo que hay adentro", p:["arr"], t:"num", l:"Valor de tus muebles y aparatos dentro de la casa",
+      why:"Solo si la rentas amueblada. Las cosas de tu inquilino no cuentan."},
+    {id:"joyas", g:"Lo que hay adentro", p:["inq","dueno"], t:"opt", o:["No","Sí"], l:"¿Alguna joya, reloj u obra de más de $46,924 por pieza?",
+      why:"Ese es el tope por pieza en robo. Para más, existe la cobertura de joyería, que <b>exige avalúo antes de emitir</b>."},
+    {id:"trabajo", g:"Lo que hay adentro", p:["inq","dueno"], t:"opt", o:["No","Sí"], l:"¿Trabajas desde casa con equipo propio?",
+      why:"Contenidos <b>excluye lo profesional</b>. Tu laptop de trabajo necesita la cobertura de teletrabajo."},
+    {id:"quien", g:"Quién vive ahí", p:["inq","dueno"], t:"text", l:"¿Quién vive contigo?",
+      why:"Cónyuge, hijos y papás que vivan ahí quedan protegidos en la RC y en lo que traen fuera de casa, y <b>no cuentan como terceros</b>."},
+    {id:"domestica", g:"Quién vive ahí", p:["inq","dueno"], t:"opt", o:["Nadie","Sí, contratada directo","Sí, por empresa"], l:"¿Alguien te ayuda en casa?",
+      why:"La RC cubre a la trabajadora doméstica <b>contratada directo</b>. Al personal de una empresa de limpieza, no."},
+    {id:"seguridad", g:"Decisiones", p:ALL, t:"opt", o:["Ninguna","Rejas","Alarma","Vigilancia","Varias"], l:"Medidas de seguridad",
+      why:"Dan descuento, pero si al momento del robo ya no existen, <b>reducen la indemnización</b> en la misma proporción."},
+    {id:"cat", g:"Decisiones", p:ALL, t:"opt", o:["Los dos","Solo temblor","Solo huracán","Ninguno","Quiero ver el precio"], l:"¿Quieres temblor y huracán?",
+      why:"<b>No vienen en la base.</b> Si decides no contratarlos, te lo dejo por escrito."}
+  ];
+
+  function visibles(){ return CAMPOS.filter(function(c){ return c.p.indexOf(perfil) > -1; }); }
+  function val(id){ return ans[id] == null ? "" : String(ans[id]); }
+
+  function renderFicha(){
+    var body = $("fichaBody"), html = "", g = null;
+    visibles().forEach(function(c){
+      if (c.g !== g){ if (g !== null) html += "</div>"; g = c.g; html += '<div class="grp"><p class="grp-t">' + esc(g) + "</p>"; }
+      var ctl;
+      if (c.t === "opt"){
+        ctl = '<div class="opts" role="group" aria-label="' + esc(c.l) + '">' + c.o.map(function(o){
+          return '<button type="button" data-k="' + c.id + '" data-v="' + esc(o) + '" aria-pressed="' + (val(c.id) === o) + '">' + esc(o) + "</button>";
+        }).join("") + "</div>";
+      } else {
+        var v = val(c.id);
+        if (c.t === "num" && v) v = (c.id === "anio" || c.id === "m2") ? String(num(v)) : fmt(num(v));
+        ctl = '<input type="text" id="f-' + c.id + '" data-k="' + c.id + '"' + (c.t === "num" ? ' inputmode="numeric" class="num"' : "") + ' value="' + esc(v) + '" autocomplete="off">';
+      }
+      html += '<div class="fq"><div><label' + (c.t !== "opt" ? ' for="f-' + c.id + '"' : "") + ">" + esc(c.l) + "</label>" + ctl + '</div><div class="why">' + c.why + "</div></div>";
+    });
+    if (g !== null) html += "</div>";
+    body.innerHTML = html;
+  }
+
+  $("fichaBody").addEventListener("click", function(e){
+    var b = e.target.closest("button[data-k]"); if (!b) return;
+    var k = b.getAttribute("data-k"), v = b.getAttribute("data-v");
+    ans[k] = (ans[k] === v) ? "" : v;
+    Array.prototype.forEach.call(b.parentNode.querySelectorAll("button"), function(o){ o.setAttribute("aria-pressed", String(ans[k] === o.getAttribute("data-v"))); });
+    changed(k);
+  });
+  $("fichaBody").addEventListener("input", function(e){
+    var el = e.target; if (!el.matches("input[data-k]")) return;
+    ans[el.getAttribute("data-k")] = el.value; changed(el.getAttribute("data-k"));
+  });
+  $("fichaBody").addEventListener("blur", function(e){
+    var el = e.target; if (!el.matches("input.num")) return;
+    var k = el.getAttribute("data-k"), n = num(el.value);
+    el.value = n ? ((k === "anio" || k === "m2") ? String(n) : fmt(n)) : "";
+  }, true);
+
+  function changed(k){
+    lsSet("hv-ficha", JSON.stringify(ans));
+    progreso(); cambios();
+    var link = {renta:"cRentaArr", rentaInq:"cRentaAct", reconst:"cRec"};
+    if (k === "m2" && num(ans.m2)) $("cM2").value = String(num(ans.m2));
+    else if (link[k] && num(ans[k])) $(link[k]).value = fmt(num(ans[k]));
+    calcAll();
+  }
+
+  function progreso(){
+    var vs = visibles(), n = vs.filter(function(c){ return val(c.id).trim() !== ""; }).length;
+    $("progBar").style.width = (vs.length ? Math.round(n / vs.length * 100) : 0) + "%";
+    $("progTxt").textContent = n + " de " + vs.length;
+  }
+
+  /* lo que cambia: reglas del condicionado aplicadas a las respuestas */
+  function cambios(){
+    var f = [], a = function(k){ return CAMPOS.some(function(c){ return c.id === k && c.p.indexOf(perfil) > -1; }) ? val(k) : ""; };
+    if (a("lago") === "Sí") f.push(["warn","Declarar","Lo pongo en la solicitud. Declarado no pasa nada; omitido, es doble deducible."]);
+    if (a("lago") === "No sé") f.push(["info","Lo reviso","Con tu pin reviso en el satélite si hay agua a menos de 200 m."]);
+    if (a("tipo") === "Departamento" && perfil !== "inq") f.push(["warn","Valor comercial","En pérdida total, un departamento en condominio vertical se paga a valor comercial. Veamos qué asegura el condominio."]);
+    if (perfil !== "inq" && num(a("reconst")) && num(a("m2"))) f.push(["info","Tu edificio","Reconstrucción de " + fmt(num(a("reconst"))) + " sobre " + num(a("m2")) + " m² = " + fmt(num(a("reconst")) / num(a("m2"))) + " por m². Compáralo con lo que cobre un constructor de tu zona."]);
+    if (a("credito") === "Sí") f.push(["info","Banco","Agrego al banco como beneficiario preferente."]);
+    if (a("modo") === "Por noches (Airbnb, Booking)") f.push(["bad","Otra póliza","El hospedaje por noches queda fuera de la RC de este producto y no encaja en pérdida de rentas. Se arma distinto; lo vemos antes de cotizar."]);
+    if (a("modo") === "Las dos") f.push(["bad","Revisar","La parte por noches queda fuera de la RC. Hay que separar qué se renta cómo antes de cotizar."]);
+    if (a("modo") === "Contrato a largo plazo") f.push(["ok","Encaja","Renta con contrato es actividad privada: entra tu RC de arrendador y se abre la pérdida de rentas."]);
+    if (num(a("renta"))) f.push(["ok","Pérdida de rentas","Suma sugerida: " + fmt(num(a("renta"))) + " × 6 meses = " + fmt(num(a("renta")) * 6) + "."]);
+    if (a("papeles") === "Contrato sin recibos") f.push(["warn","Recibos","Sin comprobante del último pago, la pérdida de rentas se cae. Empieza a dar recibo desde este mes."]);
+    if (a("papeles") === "De palabra") f.push(["bad","Sin contrato","Sin contrato firmado no hay pérdida de rentas. Firmarlo es lo primero."]);
+    if (a("pariente") === "Sí, cercano") f.push(["bad","Pariente","Con un pariente hasta segundo grado, la pérdida de rentas no aplica."]);
+    if (a("vacio") === "Meses") f.push(["warn","Deshabitada","Robo no aplica en inmueble deshabitado. Antes de emitir confirmo cómo se cuentan esos meses."]);
+    if (a("amueblado") === "No") f.push(["info","Contenidos","Sin muebles tuyos, la póliza se centra en edificio, RC y pérdida de rentas."]);
+    if (a("inqSeguro") && a("inqSeguro") !== "Sí") f.push(["info","Tu inquilino","Conviene pedirle en el contrato contenidos y RC del arrendatario. Se lo puedo cotizar."]);
+    if (num(a("rentaInq"))) f.push(["info","Inhabitable","Si te tienes que mudar, te cubren lo que la renta nueva pase de " + fmt(num(a("rentaInq"))) + ", hasta 6 meses."]);
+    if (num(a("contenidos"))) f.push(["ok","Contenidos","Suma de contenidos de partida: " + fmt(num(a("contenidos"))) + "."]);
+    if (a("joyas") === "Sí") f.push(["warn","Avalúo","Saca avalúo antes de emitir. Sin papel, aunque pagues joyería, el tope sigue en $46,924 por pieza."]);
+    if (a("trabajo") === "Sí") f.push(["warn","Teletrabajo","Agrego la cobertura de equipo de trabajo. Solo opera dentro de casa."]);
+    if (a("domestica") === "Sí, contratada directo") f.push(["ok","Cubierta","Tu RC la protege: lesiones con 10% de coaseguro; muerte o invalidez sin deducible."]);
+    if (a("domestica") === "Sí, por empresa") f.push(["info","Su patrón","Personal de una empresa de limpieza no entra en tu RC; responde la empresa."]);
+    if (a("seguridad") && a("seguridad") !== "Ninguna") f.push(["info","Descuento","Si algún día quitas esas medidas, avísame para endosar o te reducen el pago."]);
+    if (a("cat") === "Ninguno") f.push(["bad","Por escrito","Sin temblor ni huracán, la póliza no responde a ninguno de los dos. Te lo dejo por escrito."]);
+    if (a("cat") === "Solo temblor" || a("cat") === "Solo huracán") f.push(["warn","A medias","Queda fuera " + (a("cat") === "Solo temblor" ? "huracán e inundación" : "temblor") + "."]);
+    var box = $("cambios");
+    box.innerHTML = f.length ? f.map(function(x){ return '<div class="flag ' + x[0] + '"><i>' + esc(x[1]) + "</i><span>" + esc(x[2]) + "</span></div>"; }).join("")
+      : '<p class="empty">Aún no hay nada. Conforme contestes la ficha, aquí aparece qué cambia en tu póliza.</p>';
+  }
+
+  function resumen(){
+    var lines = ["Ficha Hogar Versátil", "Caso: " + PERFILES[perfil]];
+    visibles().forEach(function(c){
+      var v = val(c.id).trim(); if (!v) return;
+      if (c.t === "num") v = (c.id === "anio" || c.id === "m2") ? String(num(v)) : fmt(num(v));
+      lines.push("• " + c.l + ": " + v);
+    });
+    return lines.join("\n");
+  }
+
+  $("btnCopiar").addEventListener("click", function(){
+    var t = resumen(), msg = $("fichaMsg");
+    try {
+      navigator.clipboard.writeText(t).then(function(){ msg.textContent = "Copiada. Pégala en WhatsApp."; }, function(){ msg.textContent = "Tu navegador no dejó copiar. Selecciona el texto de abajo."; mostrarTexto(t); });
+    } catch(e){ msg.textContent = "Tu navegador no dejó copiar. Selecciona el texto de abajo."; mostrarTexto(t); }
+  });
+  function mostrarTexto(t){
+    var ta = $("fichaTxt");
+    if (!ta){ ta = document.createElement("textarea"); ta.id = "fichaTxt"; ta.rows = 8; ta.style.cssText = "width:100%;font:inherit;font-size:14px;margin-top:8px;background:var(--ground);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:9px"; $("fichaMsg").parentNode.appendChild(ta); }
+    ta.value = t; ta.select();
+  }
+  $("btnLimpiar").addEventListener("click", function(){
+    var b = this;
+    if (b.getAttribute("data-c") !== "1"){ b.setAttribute("data-c","1"); b.textContent = "¿Seguro? Toca otra vez"; setTimeout(function(){ b.removeAttribute("data-c"); b.textContent = "Borrar respuestas"; }, 3000); return; }
+    ans = {}; lsSet("hv-ficha", "{}"); b.removeAttribute("data-c"); b.textContent = "Borrar respuestas";
+    renderFicha(); progreso(); cambios(); $("fichaMsg").textContent = "Respuestas borradas.";
+  });
+
+  /* ───── perfil ───── */
+  function setPerfil(p, save){
+    if (!PERFILES[p]) return;
+    perfil = p;
+    document.body.setAttribute("data-perfil", p);
+    Array.prototype.forEach.call(document.querySelectorAll("[data-set]"), function(b){ b.setAttribute("aria-pressed", String(b.getAttribute("data-set") === p)); });
+    Array.prototype.forEach.call(document.querySelectorAll(".spec[data-na]"), function(s){ s.classList.toggle("is-na", s.getAttribute("data-na").split(" ").indexOf(p) > -1); });
+    if (save) lsSet("hv-perfil", p);
+    renderFicha(); progreso(); cambios(); filtrar(); renderChips(); calcAll();
+  }
+  Array.prototype.forEach.call(document.querySelectorAll("[data-set]"), function(b){
+    b.addEventListener("click", function(){ setPerfil(b.getAttribute("data-set"), true); });
+  });
+
+  /* ───── casos ───── */
+  var filtro = "all";
+  var fbtns = Array.prototype.slice.call(document.querySelectorAll(".filters button"));
+  var cases = Array.prototype.slice.call(document.querySelectorAll("#cases .case"));
+  function filtrar(){
+    var shown = 0;
+    cases.forEach(function(c){
+      var okP = c.getAttribute("data-p").split(" ").indexOf(perfil) > -1;
+      var okF = filtro === "all" || c.getAttribute("data-v") === filtro;
+      c.hidden = !okF;
+      if (okP && okF) shown++;
+    });
+    $("count").textContent = shown + (shown === 1 ? " caso" : " casos");
+  }
+  fbtns.forEach(function(b){ b.addEventListener("click", function(){
+    filtro = b.getAttribute("data-f");
+    fbtns.forEach(function(o){ o.setAttribute("aria-pressed", String(o === b)); });
+    filtrar();
+  }); });
+
+  /* ───── calculadoras ───── */
+  function calcAll(){
+    // topes
+    var robo = Number($("saRobo").value), rc = Number($("saRC").value);
+    $("oRobo").textContent = fmt(robo); $("oRC").textContent = fmt(rc);
+    var efectivo = Math.min(robo * 0.03, 200 * UMA), joyaArt = 400 * UMA, joyaTope = robo * 0.10, defensa = rc * 0.5;
+    $("rEfectivo").textContent = fmt(efectivo); $("rJoya").textContent = fmt(joyaArt); $("rJoyaT").textContent = fmt(joyaTope);
+    $("rDefensa").textContent = fmt(defensa); $("rRC").textContent = fmt(rc);
+    $("notaTopes").innerHTML = "Con robo de <b>" + fmt(robo) + "</b>, lo máximo por efectivo en todo el año es <b>" + fmt(efectivo) + "</b>, porque manda " +
+      (robo * 0.03 < 200 * UMA ? "el 3% de tu suma" : "el tope de 200 UMA") + "." +
+      (joyaTope < joyaArt ? " Con esta suma, el tope global de joyería (" + fmt(joyaTope) + ") queda <b>por debajo</b> del tope por pieza: manda el global." : "") +
+      " Los gastos de abogado (<b>" + fmt(defensa) + "</b>) van <b>aparte</b> de lo que se le paga al tercero.";
+
+    // inquilino
+    var ra = num($("cRentaAct").value), rn = num($("cRentaNva").value), mi = Number($("cMesesInq").value);
+    $("oMesesInq").textContent = mi;
+    var dif = Math.max(0, rn - ra);
+    $("rDifMes").textContent = fmt(dif); $("rDifTot").textContent = fmt(dif * mi);
+    $("nInq").innerHTML = dif > 0
+      ? "Pagabas <b>" + fmt(ra) + "</b> y te mudas a una de <b>" + fmt(rn) + "</b>: te cubren <b>" + fmt(dif) + "</b> al mes. El depósito de la nueva renta y los servicios los pones tú."
+      : "Si el lugar nuevo cuesta lo mismo o menos que tu renta actual, no hay diferencia que pagar.";
+
+    // dueño
+    var rt = num($("cRentaTmp").value), md = num($("cMud").value), mdd = Number($("cMesesDue").value);
+    $("oMesesDue").textContent = mdd;
+    $("rTmp").textContent = fmt(rt * mdd); $("rMud").textContent = fmt(md); $("rGE").textContent = fmt(rt * mdd + md);
+
+    // arrendador
+    var rr = num($("cRentaArr").value), ma = Number($("cMesesArr").value);
+    $("oMesesArr").textContent = ma; $("rPR").textContent = fmt(rr * ma);
+    var A = function(k){ return val(k); };
+    var conds = [
+      ["Contrato de arrendamiento vigente y firmado", A("papeles") ? (A("papeles") === "De palabra" ? "bad" : "ok") : ""],
+      ["Comprobante del último pago de renta", A("papeles") ? (A("papeles") === "Contrato y recibos" ? "ok" : "bad") : ""],
+      ["Rentada como casa habitación", A("modo") ? (A("modo") === "Contrato a largo plazo" ? "ok" : "bad") : ""],
+      ["Inquilino que no sea pariente hasta segundo grado", A("pariente") ? (A("pariente") === "Sí, cercano" ? "bad" : "ok") : ""],
+      ["Que no esté deshabitada", A("vacio") ? (A("vacio") === "Meses" ? "bad" : "ok") : ""]
+    ];
+    $("prChecks").innerHTML = conds.map(function(c){ return '<li class="' + c[1] + '">' + esc(c[0]) + "</li>"; }).join("");
+    var oks = conds.filter(function(c){ return c[1] === "ok"; }).length, sin = conds.filter(function(c){ return !c[1]; }).length;
+    $("nArr").innerHTML = sin === 5 ? "Contesta la parte de <b>La renta</b> en tu ficha y aquí se marca qué condiciones cumples hoy."
+      : "Hoy cumples <b>" + oks + " de 5</b> condiciones" + (sin ? " (faltan " + sin + " por contestar)" : "") + ". " + (oks === 5 ? "Si pasa algo, la pérdida de rentas se cobra." : "Las marcadas en rojo son las que harían que no se pague.");
+
+    // metros
+    var m2 = num($("cM2").value), rec = num($("cRec").value);
+    $("rM2rango").textContent = m2 ? Math.ceil(m2 * 0.9) + " y " + Math.floor(m2 * 1.1) + " m²" : "—";
+    $("rM2val").textContent = (m2 && rec) ? fmt(rec / m2) : "—";
+  }
+  ["saRobo","saRC","cRentaAct","cRentaNva","cMesesInq","cRentaTmp","cMud","cMesesDue","cRentaArr","cMesesArr","cM2","cRec"].forEach(function(id){ $(id).addEventListener("input", calcAll); });
+  ["cRentaAct","cRentaNva","cRentaTmp","cMud","cRentaArr","cRec"].forEach(function(id){
+    $(id).addEventListener("blur", function(){ var n = num(this.value); this.value = n ? fmt(n) : ""; });
+  });
+
+  /* ───── chat: responde Claude con la ficha del producto ───── */
+  var CHIPS = {
+    inq: ["La casa no es mía, ¿para qué lo quiero?","¿Qué pasa si se me inunda el depa?","Si me tengo que mudar, ¿qué me pagan?","¿Cubre mi bici?"],
+    dueno: ["¿Por cuánto aseguro la casa?","¿Me conviene temblor?","Si un incendio me saca de casa, ¿qué me pagan?","¿Cubre a la señora que me ayuda?"],
+    arr: ["¿Necesito seguro si mi inquilino ya tiene?","¿Qué pasa si la rento por Airbnb?","¿Cómo cobro la renta si se incendia?","¿Y si queda vacía unos meses?"]
+  };
+  var KB = [
+"Producto: GNP Hogar Versatil, condiciones generales septiembre 2025 (FPC031100-N_0925BTW09). UMA 2026 = $117.31 diarios.",
+"TRES CASOS: inquilino (renta donde vive: asegura contenidos, RC y gastos extraordinarios; no asegura edificio), propietario que vive ahi (edificio, contenidos, RC, gastos extraordinarios completos), propietario que renta a otro / arrendador (edificio, solo SUS muebles, RC como arrendador con la raya de abajo, perdida de rentas).",
+"REGLA CENTRAL: la poliza no pregunta donde paso, pregunta como paso. Violencia contra la casa (con huellas visibles) o asalto a una persona = paga. Hurto (sin violencia ni intimidacion) y extravio = nunca paga.",
+"TODO RIESGO: la base se llama incendio pero cierra con 'cualquier otro riesgo subito e imprevisto que no este excluido explicitamente'. PRIMER RIESGO ABSOLUTO: asegurar de menos limita el techo, no recorta porcentaje.",
+"EDIFICIO (propietario y arrendador): valor de reconstruccion, no precio de compra (incluye terreno). Cimientos 10%. Sobrecosto por cambio de reglamento 10% sin exceder $500,000. Remocion de escombros. Departamento en condominio vertical asegurado de forma independiente se paga a VALOR COMERCIAL en perdida total. DOBLE DEDUCIBLE solo por dos causas: no declarar lago o laguna a menos de 200 m, o tipo constructivo distinto (anio que cambie reglamento, mas de 10% de diferencia en m2, muros y techos).",
+"CONTENIDOS: valor de reposicion; el menaje comun NO tiene sublimite por articulo; arte hasta 25% de la suma de contenidos. Excluye lo profesional, dinero y valores, terremoto e hidro. Para el ARRENDADOR solo cubre sus propios muebles dentro de la casa, NUNCA las cosas del inquilino.",
+"ELECTRONICO: segun tabla de depreciacion; celular o laptop de mas de 3 anios se paga a VALOR REAL.",
+"ROBO: solo robo con violencia dejando senales visibles o asalto con violencia fisica o moral. Joyas/relojes/arte $46,924 por articulo o juego, tope global 10% de la suma, por vigencia. Efectivo 3% de la suma con maximo $23,462 AL ANIO. No cubre inmueble DESHABITADO o abandonado (importante para arrendador entre inquilinos; el plazo exacto lo confirma Fernando). Descuento por alarma o rejas: si no existen al siniestro, reducen la indemnizacion en la misma proporcion. Requiere carpeta del MP ratificada; la asistencia legal manda abogado gratis.",
+"ARTICULOS EN TRANSITO (opcional): lo portatil de uso personal fuera de casa, solo por asalto o robo aprovechando que un accidente o enfermedad repentina te dejo inconsciente. $70,386 por articulo o juego. Cobertura MUNDIAL. Cubre titular, conyuge, padres e hijos que vivan permanentemente en el domicilio asegurado (por eso no le sirve al arrendador en la casa que renta). Excluye hurto, extravio, dinero. Coche estacionado abierto = hurto, no paga; asalto estando la persona en el coche = si.",
+"JOYERIA (opcional): reposicion con avaluo o factura presentados al siniestro; sin papel vuelve a $46,924 por pieza. TELETRABAJO (opcional): existe porque contenidos excluye lo profesional; solo dentro de casa. CRISTALES (incluida): con marcos e instalacion.",
+"RC FAMILIAR: lo que el asegurado deba a un TERCERO por hecho no doloso. Cubre derrame de agua accidental, obras menores, mascotas, bicis, viajes dentro y fuera del pais, areas comunes. Texto: responsabilidad 'derivada de las actividades privadas y familiares, como arrendatario y/o propietario y/o arrendador' del inmueble asegurado. Gastos de abogado hasta 50% y EN ADICION. RC exceso de auto $100,000. Sin coaseguro salvo lesiones de trabajadora domestica (10%); su muerte o invalidez sin deducible ni coaseguro. NO son terceros la familia asegurada (unica excepcion: trabajadora domestica contratada directo). Excluye personal de EMPRESA de limpieza y todo lo derivado de la explotacion de un negocio, oficio, profesion o SERVICIO RETRIBUIDO.",
+"LA RAYA DEL ARRENDADOR: renta con contrato a alguien que vive ahi = actividad privada, entra. Hospedaje por noches con huespedes que rotan (Airbnb, Booking) = servicio retribuido, queda fuera de la RC y no encaja en perdida de rentas; se arma con otra poliza. Es lectura razonada del condicionado: para un caso concreto lo confirma Fernando por escrito con suscripcion.",
+"RC DEL ARRENDATARIO (solo inquilino): dano al inmueble rentado SOLO por incendio o explosion e imputado legalmente. Cualquier otro dano no entra. Para el arrendador, es la cobertura que conviene que tenga SU inquilino.",
+"GASTOS EXTRAORDINARIOS: se activa cuando el inmueble queda en 'condiciones inhabitables que obliguen al Asegurado a mudarse a otra vivienda'. Viene de incendio edificio/contenidos segun se tengan; temblor y huracan tienen su version aparte. Conceptos: mudanza, hotel o vivienda temporal, almacenamiento con seguro de transporte. PROPIETARIO que vive ahi: conceptos completos. INQUILINO: el condicionado limita a la DIFERENCIA entre la renta nueva y la que pagaba. ARRENDADOR que no vive ahi: no hay mudanza que pagar; lo suyo es perdida de rentas. Maximo 6 meses. Excluye depositos, fianzas, impuestos y servicios.",
+"PERDIDA DE RENTAS (arrendador): hasta 6 meses de renta que deja de percibir si el inmueble queda inutilizable por siniestro cubierto. Cinco condiciones: contrato vigente firmado por las partes, comprobante del ultimo pago anterior al siniestro, uso casa habitacion, inquilino que no sea conyuge ni pariente hasta segundo grado, inmueble no deshabitado. No cubre retrasos por falta de recursos para reconstruir, permisos cancelados, fallas de la reconstruccion o responsabilidad del inquilino.",
+"TEMBLOR E HIDRO (opcionales): no vienen en la base. Hidro agrupa 72 horas (168 inundacion) como un solo siniestro y deducible. Para inquilino solo afecta sus cosas; para propietario y arrendador esta en juego la construccion.",
+"ASISTENCIAS: orientacion medica y videoconsulta con receta digital sin costo e ilimitadas 24/365 (Medica Movil); asistencia legal sin costo ni limite; ambulancia la PRIMERA DEL ANIO sin costo, siguientes con tarifa de convenio, atiende a toda persona dentro del inmueble; reparaciones urgentes $1,500 por evento; consulta a domicilio la paga el asegurado. Lo medico excluye autolesiones, actos delictivos, preexistentes cronicas o recurrentes, trasplantes y ultimos meses de embarazo.",
+"COMPROBAR: sin factura no se rechaza, la compania cotiza. Valen notas, avaluos, estados de cuenta, correos de compra, y video o foto para joyas y objetos personales. Video de la casa guardado en la nube.",
+"PLAZOS: siniestro 5 dias; demanda 1 dia habil; agravacion del riesgo 24 HORAS o cesan obligaciones; 30 dias de gracia de prima; prescripcion 2 anios. DEDUCIBLE primero, luego COASEGURO; montos en la caratula.",
+"PRECIO (criterio de suscripcion, no tarifa): pesan mucho suma del edificio, temblor e hidro, ubicacion y tipo de construccion; medio contenidos, deducible/coaseguro, sumas de robo y RC, perdida de rentas; ajuste medidas de seguridad y coberturas sueltas."
+  ].join("\n");
+
+  function reglas(){
+    return [
+"Eres el asistente de la presentacion de seguro de hogar que preparo Fernando Dali Ibarra, asesor de seguros GNP. Contestas dudas sobre Hogar Versatil.",
+"CASO DE QUIEN PREGUNTA: " + PERFILES[perfil] + ". Responde para ese caso. Si pregunta por otro escenario (comprar, rentarla, mudarse), explicalo como escenario.",
+"REGLAS QUE NO PUEDES ROMPER:",
+"1. Responde UNICAMENTE con la FICHA de abajo. Si no esta ahi, di que eso lo confirma Fernando y no lo inventes.",
+"2. NUNCA inventes cifras, porcentajes, plazos ni coberturas. Todo numero que cites debe estar en la ficha, tal cual.",
+"3. NUNCA estimes una prima. Si preguntan cuanto cuesta, explica que depende de sus datos, que la cotizacion la hace Fernando, y que factores mueven el precio.",
+"4. NUNCA afirmes que un caso concreto quedara pagado: di que el condicionado lo contempla y que manda la caratula emitida y el ajuste.",
+"5. Casos particulares, tramites, siniestros en curso o temas legales: mandalos con Fernando.",
+"6. No hables de comisiones ni de otras aseguradoras, ni des consejos fiscales, medicos o legales.",
+"COMO RESPONDES: espanol mexicano, de tu, claro y directo. Maximo 4 parrafos cortos, sin encabezados; **negritas** para lo importante. Primero la respuesta, luego el porque. Si algo tiene condicion o tope, dilo siempre.",
+"FICHA (unica fuente de verdad):", KB].join("\n");
+  }
+
+  var thread = $("thread"), form = $("chatForm"), qbox = $("q"), sendBtn = $("send"), chips = $("chips");
+  var turns = [], sampleNS = null, busy = false, chatOff = false;
+  function renderChips(){
+    chips.innerHTML = CHIPS[perfil].map(function(t){ return '<button type="button">' + esc(t) + "</button>"; }).join("");
+  }
+  chips.addEventListener("click", function(e){ var b = e.target.closest("button"); if (b) preguntar(b.textContent); });
+  function fmtMd(s){ return esc(s).split(/\n\s*\n/).map(function(p){ return "<p>" + p.replace(/\n/g,"<br>").replace(/\*\*([^*]+)\*\*/g,"<strong>$1</strong>") + "</p>"; }).join(""); }
+  function setBot(el, t){ el.innerHTML = '<span class="who">Respuesta</span>' + fmtMd(t); }
+
+  async function preguntar(text){
+    if (busy || chatOff || !text.trim() || !sampleNS) return;
+    busy = true; sendBtn.disabled = true;
+    var you = document.createElement("div"); you.className = "msg you"; you.textContent = text; thread.appendChild(you);
+    var bot = document.createElement("div"); bot.className = "msg bot"; bot.innerHTML = '<span class="who">Respuesta</span><p class="dots">Pensando</p>'; thread.appendChild(bot);
+    bot.scrollIntoView({block:"nearest", behavior:"smooth"});    var first = {role:"user", content: reglas() + "\n\nPrimera pregunta: " + text};
+    var input = turns.length ? turns.concat([{role:"user", content:text}]) : [first];
+    try {
+      var res = await sampleNS(input, {modelTier:"default", cache:false, onText:function(ev){ setBot(bot, ev.text); }});
+      setBot(bot, res.text);
+      if (!turns.length) turns.push(first); else turns.push({role:"user", content:text});
+      turns.push({role:"assistant", content:res.text});
+      if (turns.length > 15) turns = turns.slice(0,1).concat(turns.slice(-12));
+    } catch(err){
+      var code = (err && err.code) || "";
+      bot.className = "msg err";
+      if (code === "not_granted"){ bot.innerHTML = "<b>El chat necesita tu permiso.</b> Sin él, escribe tu duda abajo y mándasela a Fernando."; sinAsistente(); }
+      else bot.innerHTML = code === "rate_limited" ? "<b>Muchas preguntas seguidas.</b> Espera un momento y vuelve a intentar." : "<b>No se pudo responder ahora.</b> Mándale la duda a Fernando y te contesta él.";
+    } finally { busy = false; sendBtn.disabled = chatOff; if (!chatOff) qbox.focus(); }
+  }
+
+  function sinAsistente(){
+    if (chatOff) return; chatOff = true;
+    form.hidden = true; chips.hidden = true; $("chatFoot").hidden = true;
+    var box = document.createElement("div"); box.className = "copybox";
+    box.innerHTML = "<b>Aquí no se puede responder en automático.</b> Escribe tu duda, cópiala y mándasela a Fernando: te contesta él directo."
+      + '<textarea id="q2" rows="3" placeholder="Tu duda…" aria-label="Tu duda"></textarea><button type="button" class="btn" id="copyBtn">Copiar mi duda</button>';
+    form.parentNode.insertBefore(box, form);
+    $("copyBtn").addEventListener("click", function(){
+      var v = $("q2").value, b = this; if (!v.trim()) return;
+      var t = "Duda sobre el seguro de hogar (" + PERFILES[perfil] + "): " + v;
+      try { navigator.clipboard.writeText(t).then(function(){ b.textContent = "Copiada"; }, function(){ $("q2").select(); b.textContent = "Selecciónala y cópiala"; }); }
+      catch(e){ $("q2").select(); b.textContent = "Selecciónala y cópiala"; }
+      setTimeout(function(){ b.textContent = "Copiar mi duda"; }, 2500);
+    });
+  }
+
+  qbox.addEventListener("input", function(){ qbox.style.height = "auto"; qbox.style.height = Math.min(qbox.scrollHeight, 130) + "px"; });
+  qbox.addEventListener("keydown", function(e){ if (e.key === "Enter" && !e.shiftKey){ e.preventDefault(); form.requestSubmit(); } });
+  form.addEventListener("submit", function(e){ e.preventDefault(); var v = qbox.value; qbox.value = ""; qbox.style.height = "auto"; preguntar(v); });
+
+  /* ───── arranque ───── */
+  if (num(ans.renta)) $("cRentaArr").value = fmt(num(ans.renta));
+  if (num(ans.rentaInq)) $("cRentaAct").value = fmt(num(ans.rentaInq));
+  if (num(ans.reconst)) $("cRec").value = fmt(num(ans.reconst));
+  if (num(ans.m2)) $("cM2").value = String(num(ans.m2));
+  var h = (location.hash || "").replace("#", "");
+  setPerfil(HASH[h] || lsGet("hv-perfil") || "dueno", false);
+
+  sendBtn.disabled = true;
+  (async function(){
+    var c = window.claude;
+    try { sampleNS = c && c.use ? await c.use("sample") : null; } catch(e){ sampleNS = null; }
+    if (sampleNS) sendBtn.disabled = false; else sinAsistente();
+  })();
+})();
+</script>
+
+</body>
+</html>
